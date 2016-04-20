@@ -4,6 +4,7 @@ This repository contains test procedures for the reporting module of a COS 301 m
 ### Bugs R Us
 #### Collaborators
 + Paul Engelke (13093500)
++ Antonia Michael (13014171)
 + (Add name and student number)
 
 #### Repository Structure:
