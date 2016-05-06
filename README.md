@@ -5,7 +5,7 @@ This repository contains test procedures for the reporting module of a COS 301 m
 #### Collaborators
 + Paul Engelke (13093500)
 + Antonia Michael (13014171)
-+ (Add name and student number)
++ Taariq Ghoord (10132806)
 
 #### Repository Structure:
 + **./docs** contains testing documentation.
