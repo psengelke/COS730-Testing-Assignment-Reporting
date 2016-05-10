@@ -1,6 +1,11 @@
 aggregateUnits(Per entity, type) 
+addUnitsPerPersonTest()
+addUnitsPerGroupTest()
+getUnitsOfPublicationTypeTest()
+CombinedTest()
 
 ?dateOutOfBounds? exception
 
 ProgressStatus(per entity, type )
+ProgressPercentageCalculatorTest()
 
