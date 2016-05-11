@@ -9,3 +9,35 @@ CombinedTest()
 ProgressStatus(per entity, type )
 ProgressPercentageCalculatorTest()
 
+-----------------------------------------------------------------------------
+
+1) Unit Tests:
+	- viewPersonReport
+	- viewGroupReport
+	- viewReportByLifecycleState
+	- viewByFilterPub : by pub state
+	- viewByFilter: by group
+	- viewByFilter: group and pub state
+
+2) Questions:
+	2.1) Test: Maven build with dependencies?
+	2.2) Conformation with contracts specification and mock objects?
+	2.3) Deployable into application?
+	2.4) Use of JasperReports?
+
+3) Documentation:
+	3.1) Introduction, scope, etc
+	3.2) Test environment, etc
+	3.3) Split tests / 4
+		- Functional
+		- Non-functional
+		- Architectural ^ (part of non-functional? 2.1 - 2.4 ? )
+	3.4) Test Summary (of unit tests and non-functional requirements, which can be 
+		partially achieved with unit tests)	
+	3.5) Conclusion
+		- Answer questions 2.1 - 2.4 with reference to 3.3
+	
+-----------------------------------------------------------------------------
+
+
+
