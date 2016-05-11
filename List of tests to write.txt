@@ -9,6 +9,9 @@ CombinedTest()
 ProgressStatus(per entity, type )
 ProgressPercentageCalculatorTest()
 
+More unit tests:
+Check that the report can be represented in the different formats - csv, html
+Check that the relevant fields are specified on the report and that these show the current situation - i.e. the correct life cycle state of a given conference paper/ journal article etc.
 -----------------------------------------------------------------------------
 
 1) Unit Tests:
@@ -38,6 +41,26 @@ ProgressPercentageCalculatorTest()
 		- Answer questions 2.1 - 2.4 with reference to 3.3
 	
 -----------------------------------------------------------------------------
+NB 	- Need report on functional requirements and non functional requirements
+	- Screenshots of git
+	- Cover Page
+	- "If the requirements are ambiguous or incomplete, you have to clarify by 			stating your assumptions and then devise your plans according to the 			assumptions as stipulated."
 
+1.) Generate Research Report
+Pre conditions  - All fields in form have been filled in and are valid
+				- User can specify to view a report for:
+					- A Research Group 
+					- The User
+				- A valid time frame or the default time frame has been selected
+				- There is sufficient information about the research department in the database to create a report on this
+				- The format of the report has been selected (csv, html)
+				- User can generate a report for only:
+					- A specific lifecycle state
+					- Type of paper
+					
+Post conditions - A report has been generated in the specified format - html/csv
+				- Graphs are displayed on the report
+				- Report is in line with the users preferences
+	
 
-
+Post conditions - 
