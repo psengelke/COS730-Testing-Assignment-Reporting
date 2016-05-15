@@ -83,14 +83,46 @@ The constraints of developing a test plan for this module is the vague documenta
 	\item List the test items (software/products) and their versions.
 \end{enumerate}
 
-\section{Features to be Tested}
+\section{Features to be Tested (This section was merged with the approach section)}
+
+Describe the overall approach for the level of testing. For each major feature or group of features,
+specify the approach that will ensure that they are adequately tested. The approach may be described in
+sufficient detail to permit identification of the major testing tasks and estimation of the time required to
+do each one.\\\\
+Features to be tested (LTP Section 2.3), features not to be tested (LTP Section 2.4), and approaches
+(LTP Section 2.5) are commonly combined in a table called a Test Matrix. It contains a unique
+identifier for each requirement for the test (e.g., system and/or software requirements, design, or code),
+an indication of the source of the requirement (e.g., a paragraph number in the source document), and a
+summary of the requirement and an identification of one or more generic method(s) of test. (as a method we can and should only use black box testing)\\\\
+
+The original IEEE 829 document also has a Test Traceability Matrix section. And it suggests the following at this sections: The Test Matrix may be combined with the Test Traceability Matrix. The Test Traceability Matrix
+links each requirement with one or more test cases.\\\\
+
+I really think we could combine these sections like the above suggests into a table. But we could also just reference the test cases in the same table. The test cases could then reside in a section called Test Identification. What do you think of the following outline for this section:\\\\
 
 \subsection{Functional}
-\begin{enumerate}
-	\item List the features of the software/product to be tested.
-	\item Provide references to the Requirements and/or Design specifications of the features to be tested
-\end{enumerate}
-\subsection{Non-functional}     
+Describe the approach taken for functional requirements testing. Mention the generic method used for all functional tests (Black box)\\\\
+
+Then we tabulate each feature and provide a reference to the use cases (in Test Identification section) that were identified for each requirement/feature. Where there are no sources to reference for requirements (it's not in the Master Spec) we have to state that it's an assumption. Where do you guys propose we detail these assumptions because Mrs Vreda said we should state them clearly.\\\\
+
+
+\begin{tabular}{ l|l|l|l } 
+	\hline
+	\textbf{Feature ID} & \textbf{SRS Source} & \textbf{Summary} & \textbf{Test Case ID}\\
+	\hline
+	\hline
+	viewReportByGroup & Section x.y & short description &\begin{tabular}[t]{@{}l@{}}
+		TC01\\
+		TC02\\
+		TC03\\		
+	\end{tabular}\\
+	\hline
+	somethingConjured & Assumed & short descriptinon & TC04\\
+	\hline
+	\hline
+\end{tabular}	
+
+\subsection{Non-Functional}
 
 \section{Features not to be Tested}
 
@@ -99,15 +131,39 @@ The constraints of developing a test plan for this module is the vague documenta
 	\item Specify the reasons these features won’t be tested.
 \end{enumerate}
 
-\section{Approach}
+\section{Test Identification}
 
-\begin{enumerate}
-	\item Mention the overall approach to testing.
-	\item Specify the testing levels [if it’s a Master Test Plan], the testing types, and the testing methods [Manual/Automated; White Box/Black Box/Gray Box]
-\end{enumerate}
+Here we can then list each and every test that we want to perform. Mostly functional tests, but it could also be non-functional.\\\\
+
+This is what Paul had with Test 1, precondition, post-condition etc. IEEE has the following in that section:
+\begin{itemize}
+	\item  Objective - Identify and briefly describe the special focus or objective for the test case or a series of test cases.
+Authorized licensed use limited to: University of Pretoria. Downloaded on May 14,2016 at 14:28:04 UTC from IEEE Xplore. Restrictions apply.
+This is much more detailed than the Test Items in the Level Test Plan. It may include the risk or
+priority for this particular test case or series of test cases.
+	\item  Inputs - Specify each input required to execute each test case. Some inputs will be specified by value (with
+tolerances where appropriate), whereas others, such as constant tables or transaction files, will be
+specified by name. Identify all appropriate databases, files, terminal messages, memory resident areas,
+and values passed by the operating system.
+	\item  Outcome(s) - Specify all outputs and the expected behavior (e.g., response time) required of the test items. Provide
+the exact value (s) (with tolerances where appropriate) for each required output and expected behavior.
+This section is not required for self-validating tests.
+\end{itemize}
+
+Which we can again tabulate if you want: \\\\
+\begin{tabular}{ r|l } 
+	\hline      
+	\textbf{Test Case ID} & \textbf{TC01 - test\_viewByGroup\_conditions()}\\
+	\hline
+	Objective & \\
+	Inputs & \\
+	Outcome(s) & \\ 
+	\hline
+	
+\end{tabular}
 
 \section{Item Pass/Fail Criteria}
-
+   
 \begin{enumerate}
 	\item Specify the criteria that will be used to determine whether each test item (software/product) has passed or failed testing.
 \end{enumerate}
