@@ -57,10 +57,14 @@ Pre conditions  - All fields in form have been filled in and are valid
 				- User can generate a report for only:
 					- A specific lifecycle state
 					- Type of paper
+					- Specific organization?
 					
 Post conditions - A report has been generated in the specified format - html/csv
 				- Graphs are displayed on the report
 				- Report is in line with the users preferences
 	
-
+Exceptions:
+	- InsufficientDataToGenerateReportException
+	- InvalidDetailsEntered (unless there are only drop downs -  then InvalidTimeFrameException)
+	- FieldsNotFilledInException
 Post conditions - 
