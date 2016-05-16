@@ -62,12 +62,9 @@ The goal of this test plan is to identify possible flaws in the implementation o
 
 	\item Specify any constraints.
 
-The constraints of developing a test plan for this module is the vague documentation of this module given in the SRS.
-
-\end{enumerate}
-
-\section{References}
-
+The constraints of developing a test plan for this module is the vague documentation of this module given in the SRS. 
+\end{enumerate} 
+\section{References} 
 \begin{enumerate}
 	\item List the related documents, with links to them if available, including the following:
 
@@ -138,8 +135,7 @@ Here we can then list each and every test that we want to perform. Mostly functi
 This is what Paul had with Test 1, precondition, post-condition etc. IEEE has the following in that section:
 \begin{itemize}
 	\item  Objective - Identify and briefly describe the special focus or objective for the test case or a series of test cases.
-This is much more detailed than the Test Items in the Level Test Plan. It may include the risk or
-priority for this particular test case or series of test cases.
+This is much more detailed than the Test Items in the Level Test Plan. It may include the risk or priority for this particular test case or series of test cases.
 	\item  Inputs - Specify each input required to execute each test case. Some inputs will be specified by value (with
 tolerances where appropriate), whereas others, such as constant tables or transaction files, will be
 specified by name. Identify all appropriate databases, files, terminal messages, memory resident areas,
@@ -150,15 +146,40 @@ This section is not required for self-validating tests.
 \end{itemize}
 
 Which we can again tabulate if you want: \\\\
-\begin{tabular}{ r|l } 
+\begin{tabular}{ L{3cm}| L{3cm}| L{3cm}| L{3cm}| L{0cm}} 
 	\hline      
-	\textbf{Test Case ID} & \textbf{TC01 - test\_viewByGroup\_conditions()}\\
+	\textbf{Test Case ID} & \textbf{Objective} & \textbf{Inputs} & \textbf{Outcome}\\
+	\hline 
 	\hline
-	Objective & \\
-	Inputs & \\
-	Outcome(s) & \\ 
-	\hline
-	
+	View Research Group Report  &  
+	The objective for this test case is to test that a report can be generated for a specific research group that the user can specify on the form & 
+	The inputs required to execute this test case are the user's selection of a particular research group. This is an optional field and if it is not selected, a report will be generated for the entire department. & 
+	The outcome of this test case should be that a report is generated for the specified research group & \\
+	\hline 
+View Report For Specific Lifecycle State  &  
+	The objective for this test case is to test that a report can be generated for a specific life cycle state that the user can select on the form. A lifecycle state refers to the current status of the paper i.e. accepted, submitted, published. Hence a report will be generated displaying the papers of the selected state only & 
+	The inputs required to execute this test case are the user's selection of a particular lifecycle state. This is an optional field and if it is not selected, a report will be generated including all utilized states . & 
+	The outcome of this test case should be that a report is generated for the specified lifecycle state & \\ 
+	\hline 
+View Department Report &  
+	The objective for this test case is to test that a report can be generated for the entire research department.This will also be the default option if users do not select filter options & 
+	The inputs required to execute this test case are the user's selection of the option to view report, without selecting filters. & 
+	The outcome of this test case should be that a report is generated for the entire department& \\ 
+\end{tabular}
+\\
+\begin{tabular}{ L{3cm}| L{3cm}| L{3cm}| L{3cm}| L{0cm}} 
+\hline 
+View Report For Specific Publication Type &  
+The objective for this test case is to test that a report can be generated for a specific publication type that the user can select on the form. A publication type refers to either a conference paper, journal article or technical papers. Hence a report will be generated displaying the papers of the selected specific publication type & 
+	The inputs required to execute this test case are the user's selection of a particular publication type. This is an optional field and if it is not selected, a report will be generated including all utilized publication types . & 
+	The outcome of this test case should be that a report is generated for the specified publication type& \\ 
+\hline 
+View Report For Specific Time Frame &  
+The objective for this test case is to test that a report can be generated for a specific time frame that the user can select on the form. & 
+	The inputs required to execute this test case are the user's selection of a particular time frame. This is an optional field and if it is not selected, a report will be generated for the entire period. & 
+	The outcome of this test case should be that a report is generated for the specified time frame& \\ 
+\hline
+	 
 \end{tabular}
 
 \section{Item Pass/Fail Criteria}
@@ -233,9 +254,7 @@ Which we can again tabulate if you want: \\\\
 	\item List the assumptions that have been made during the preparation of this plan.
 	\item List the dependencies.
 \end{enumerate}
-
 \section{Approvals}
-
 \begin{enumerate}
 	\item Specify the names and roles of all persons who must approve the plan.
 	\item Provide space for signatures and dates. (If the document is to be printed.)
