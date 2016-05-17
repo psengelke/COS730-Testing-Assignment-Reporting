@@ -2,7 +2,7 @@ package org.cos730.bugsrus.reporting;
 
 /**
  *
- * @author Abrie van Aardt
+ * @author Bugs R Us
  */
 public class ReportingTestConfig {
 
