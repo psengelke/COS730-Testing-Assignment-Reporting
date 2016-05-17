@@ -230,11 +230,25 @@ The objective for this test case is to test that a report can be generated for a
 \end{enumerate}
 
 \section{Risks}
-
+	The following potential risks are found in this module:
 \begin{enumerate}
-	\item List the risks that have been identified.
-	\item Specify the mitigation plan and the contingency plan for each risk.
+	\item Aggregating data for those whose names are incoherent from publication to publication.
+	\item Values  which are out of bounds.
+	\item Database is in an unusable state.
+	\item Too much data to process at once.
 \end{enumerate}
+
+	The following are contingencies which could be used to prevent the potential risks from arising:
+\begin{enumerate}
+
+	\item Do a smart lookup on names and research groups.
+	\item Always do bounds checking.
+	\item Check that the database is in a stable state before attempting to access it.
+	\item Use a map-reduce if necessary.
+         
+
+\end{enumerate}
+
 
 \section{Assumptions and Dependencies}
 
