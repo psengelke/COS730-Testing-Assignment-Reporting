@@ -1,3 +1,5 @@
+Unit Test Plan Document
+--------------------------------------------------------------------------------
 1 Introduction                    - Taariq
 2 References (short)              - Collaborative
 3 Test Items (short)              - Collaborative
@@ -9,5 +11,13 @@
 10 Test Environment               - Paul
 15 Risks                          - Taariq
 16 Assumptions and Dependencies   - Abrie
+<<<<<<< HEAD
 17
 
+=======
+
+Unit Test Report Document
+--------------------------------------------------------------------------------
+
+We can decide on the allocations when the other doc is done?
+>>>>>>> 4d24ed0a5d6875429d7f72e9eb6694f2774e7aa1
