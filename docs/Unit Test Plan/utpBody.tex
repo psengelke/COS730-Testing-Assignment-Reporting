@@ -78,6 +78,7 @@ The constraints of developing a test plan for this module is the vague documenta
 
 \begin{enumerate}
 	\item List the test items (software/products) and their versions.
+	\item 
 \end{enumerate}
 
 \section{Features to be Tested (This section was merged with the approach section)}
@@ -179,7 +180,11 @@ The objective for this test case is to test that a report can be generated for a
 	The inputs required to execute this test case are the user's selection of a particular time frame. This is an optional field and if it is not selected, a report will be generated for the entire period. & 
 	The outcome of this test case should be that a report is generated for the specified time frame& \\ 
 \hline
-	 
+View Report For Specific Person &  
+The objective for this test case is to test that a report can be generated for a specific person, provided the name and surname of said person is entered on the form & 
+	The inputs required to execute this test case are the name and surname of the person for whom the report should be generated& 
+	The outcome of this test case should be that a report is generated for the specified person& \\ 
+\hline	 
 \end{tabular}
 
 \section{Item Pass/Fail Criteria}
@@ -212,33 +217,15 @@ The objective for this test case is to test that a report can be generated for a
 \section{Test Environment}
 
 \begin{enumerate}
-	\item Specify the properties of test environment: hardware, software, network etc.
+	\item The properties of test environment: hardware, software, network etc.
+	\item Web Server - 
+	\item Database - 
+	\item OS - Linux, Windows, IoS etc.
+	\item Browser - All browsers
+	\item Java Version - 
+	\item Testing Framework - JUnit
 	\item List any testing or related tools.
-\end{enumerate}
-
-\section{Estimate}
-
-\begin{enumerate}
-	\item Provide a summary of test estimates (cost or effort) and/or provide a link to the detailed estimation.
-\end{enumerate}
-
-\section{Schedule}
-
-\begin{enumerate}
-	\item Provide a summary of the schedule, specifying key test milestones, and/or provide a link to the detailed schedule.
-\end{enumerate}
-
-\section{Staffing and Training Needs}
-
-\begin{enumerate}
-	\item Specify staffing needs by role and required skills.
-	\item Identify training that is necessary to provide those skills, if not already acquired.
-\end{enumerate}
-
-\section{Responsibilities}
-
-\begin{enumerate}
-	\item List the responsibilities of each team/role/individual.
+	\item JUnit - The unit testing framework that will be used to test functional requirements
 \end{enumerate}
 
 \section{Risks}
