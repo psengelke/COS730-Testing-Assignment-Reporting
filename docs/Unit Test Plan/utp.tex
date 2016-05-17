@@ -4,7 +4,10 @@
 \usepackage{graphicx}
 \graphicspath{{./figures/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
-\usepackage[bookmarks=true, hidelinks]{hyperref}
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{
+	colorlinks = true,    
+}
 \usepackage{bookmark}
 \usepackage{csquotes}
 \usepackage{float}
@@ -24,7 +27,11 @@
 
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{5}
+\hypersetup{
+	linkcolor = black
+}
 \tableofcontents
+
 \newpage
 
 \subimport{./}{utpBody}
