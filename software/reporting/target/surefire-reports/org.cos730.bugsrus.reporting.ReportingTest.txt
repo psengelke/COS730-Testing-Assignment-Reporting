@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: org.cos730.bugsrus.reporting.ReportingTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.425 sec <<< FAILURE!
-serviceOrMethod1_scenario1(org.cos730.bugsrus.reporting.ReportingTest)  Time elapsed: 0.013 sec  <<< FAILURE!
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.516 sec <<< FAILURE!
+serviceOrMethod1_scenario1(org.cos730.bugsrus.reporting.ReportingTest)  Time elapsed: 0.015 sec  <<< FAILURE!
 java.lang.AssertionError: Expected exception: java.lang.Exception
 	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:32)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
