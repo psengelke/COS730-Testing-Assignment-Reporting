@@ -27,7 +27,7 @@ public class ReportingTest {
      * @throws Exception
      */
     @Test(expected = Exception.class)
-    public void serviceOrMethod1_scenario1() throws Exception {
+    public void getAccreditationUnitsReport_perGroup() throws Exception {
         // when testing a precondition replace Exception with the particular
         // exception that will be thrown if the service is correctly refused   
 
