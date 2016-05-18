@@ -1,63 +1,45 @@
 
 \section{Overview of Test Results}
 \label{sec:overviewResults}
-
-Summarize the evaluation of the test items. Identify the items tested, indicating their version/revision
-level. Indicate the environment in which the testing activities took place, and its impact (if any).
-%feel free to  edit/add-on
-
-The tests for this module have all failed. We have ran unit tests according to the specification. The tests all used mock objects to see if this module was working correctly in isolation. We have identified two main services in this module. Namely, AccreditationUnits reports and  progress reports. These two services can be passed a range of filtering options which will be tested. Filtering options for the AccreditationUnits service include per entity(group or person), per publication type, per selection of lifecycle states and any combination of these. The progress report can only be filtered per entity(group or person), per publication type or both. The respective unit tests for these will be written. The impact of using mock objects here is that this module can be throughly tested without need for external dependencies. 
+The tests for this module have all failed. We have ran unit tests according to the specification. We utilized a mocking framework, Mockito, for the unit tests on the module. Two main services were required for this module. Namely, getAccreditationUnitsReport and  getProgressReport. These two services can be passed a range of filtering options which will be tested. Filtering options for the AccreditationUnits service include per entity(group or person), per publication type, per selection of lifecycle states and any combination of these. The progress report can only be filtered per entity(group or person), per publication type or both. The respective unit tests for these will be written. The impact of using mock objects here is that this module can be throughly tested without need for external dependencies. 
 
 
 \section{Detailed Test Results} 
-\label{sec:detailedResults} 
-Summarize the results of testing. Identify all resolved anomalies and summarize their resolutions (or
-reference where that information is available). Identify all unresolved anomalies. If anomalies are
-deferred, explain (or reference) the process for handling deferrals.\par
-
-Summarize the major testing activities and events. Summarize the relevant metrics collected.
-Report any variances of the test items from their specifications. Indicate any variances from the test
-documentation (e.g., test changes or tests not executed). Specify the reason for each variance (or
-specified group(s) of variances), or reference where it is recorded.\par
-
-Evaluate the comprehensiveness of the testing process (e.g., coverage metrics, if specified) against the
-comprehensiveness criteria specified in the Level Test Plan, if the plan exists.
+\label{sec:detailedResults}  
 \subsection{Functional Requirements Test Results}
-The tests we have created for this module are contained within the file ReportingTest.java which can be found in the following location: COS730-Testing-Assignment-Reporting/software/reporting/src/test/java/org/cos730/bugsrus/reporting.
+The tests we have created for this module are contained within the file ReportingTest.java which can be found in the following location:
+\\  COS730-Testing-Assignment-Reporting/software/reporting/src/test/java/org/cos730/bugsrus/reporting.
 Test Results for the following services that were specified in the Test Identification section of the Test Plan follow:  
-\subsubsection{Accreditation Reporting} 
- The following results were obtained from the tests conducted. The tests to produce the following results have failed and the reasons are stated below.
+\subsubsection{Accreditation Reporting}  
+The following results were obtained from the tests conducted. The tests to produce the following results have failed and the reasons are stated below. 
 \begin{enumerate}
-	\item A report containing information regarding or related to the accreditation target of the specified researcher could not be generated due to the fact there is no persistence used with the data needed to compile the report and secondly a reporting framework such as Jasper Reports was not used. In addition, there is no function in the provided code
-	\item A report containing information regarding or related to the accreditation target of the research group, where the data is an aggregated sum of the individual researchers in the group could not be generated for the same reasons - lack of database and reporting framework.
-	\item An empty report.
-	\item An empty report. 
+	\item A report containing information regarding or related to the accreditation target of the specified researcher could not be generated due to the fact there is no persistence used with the data needed to compile the report and secondly a reporting framework such as Jasper Reports was not used. In addition, there are no functions in the provided code to handle such a request or provide the necessary functionality. 
+	\item A report containing information regarding or related to the accreditation target of the research group, where the data is an aggregated sum of the individual researchers in the group could not be generated for the same reasons could not be generated due to a lack of database and reporting framework in addition to the fact that there is no function to handle such a request.
+	\item An empty report was not generated for the same reasons stated in the previous bullet. 
 \end{enumerate}
 
 \subsubsection{By Publication Type}
 \begin{enumerate}
-	\item A report of all publications of PublicationType: Journal, where the accreditation unit value, if published, is included.
-	\item A report of all publications of PublicationType: Conference, where the accreditation unit value, if published, is included.
-	\item A report of all publications of PublicationType: Book Chapter, where the accreditation unit value, is included.
+	\item A report of all publications of PublicationType: Journal, where the accreditation unit value, if published, cannot be generated because there is no functionality to support filtering by publication type furthermore there is no reporting framework in place to generate a report.
+	\item A report of all publications of PublicationType: Conference, where the accreditation unit value, if published, cannot be generated because of the same reasons.  
+	\item A report of all publications of PublicationType: Book Chapter, where the accreditation unit value, cannot be generated as well because of the same reasons stated above.
 \end{enumerate}
 
 
 \subsubsection{By Life-cycle State}
-For each of the inputs above, a report of all publications in that state exclusively, where the accreditation unit value is included, must be generated.
+For each of the inputs above, a report of all publications in that state exclusively, where the accreditation unit value is included cannot be generated because a function to filter by lifecycle state has not been included in the classes provided and again due to the lack of a reporting framework, a report cannot be generated. In addition, the lack of persistence makes it impossible to display any information on a report if one was generated. 
 
 \subsubsection{By Some Combination}
-Each combination must return a report that only shows information that is within the filters' constraints.
-
-\subsection{Research Status Reporting}
-The following are the expected outcomes for a pass result for the functionality:
+Each combination must return a report that only shows information that is within the filters' constraints, since none of the accreditation filters were implemented this is not possible. Furthermore reports cannot be generated due to the lack of a persistance database.
+ 
+\subsection{Progress Reporting} 
+For the service getProgressReport, the associated tests failed and the reasons for this is stated below. 
 
 \subsubsection{By Publication Type} \label{ti_sr_pubtype}
-For each PublicationType as input, only those (InProgress) publications of that type should be returned in the report.
+For each PublicationType as input, the InProgress publications of that type could not be returned in the report due to the fact that there was no function created to service this request and to create a report based on filters. In addition, there is a lack of reporting framework and persistence.
 
 \subsubsection{By Some Combination }
-A report filtered by both Entity and PublicationType should be returned.
-
-
+A report filtered by both Entity and PublicationType could not be returned since no functionality was implemented with the required filters.
 
 \subsection{Non-functional Requirements Test Results}
 \begin{enumerate} 
@@ -71,11 +53,11 @@ A report filtered by both Entity and PublicationType should be returned.
 \begin{enumerate}    
 \item Provide the Maven build with appropriate dependencies
 \begin{figure}[h!]
-  \caption{The maven build}
+  \caption{The Maven Build}
 	\includegraphics[scale=0.6]{mavenBuild1.PNG}
 \end{figure} 
 \begin{figure}[h!]
-  \caption{Their tests}
+  \caption{The tests from the repo provided}
 	\includegraphics[scale=0.6]{mavenBuild2.PNG}
 \end{figure} \\ \\
 \item Use of Jasper Reports - Jasper Reports has not been used in the code and thus no reports are generated. There is no provision in the code for a framework such as Jasper Reports. 
@@ -86,6 +68,13 @@ A report filtered by both Entity and PublicationType should be returned.
 \section{Rationale for Decisions}
 Specify the issues that were considered for any decisions and the reason(s) for the selection of the
 conclusion(s).
+
+\section{Git Contributions}
+\begin{figure}[h!]
+  \caption{Git Contributions}
+	\includegraphics[scale=0.6]{gitGraph.PNG}
+\end{figure} 
+
 
 \section{Conclusions and Recommendations}
 \label{sec:conclusions}
