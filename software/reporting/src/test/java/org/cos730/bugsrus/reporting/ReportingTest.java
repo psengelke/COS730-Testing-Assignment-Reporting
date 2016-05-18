@@ -1,5 +1,7 @@
 package org.cos730.bugsrus.reporting;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -30,7 +32,7 @@ public class ReportingTest {
     public void getAccreditationUnitsReport_perGroup() throws Exception {
         // when testing a precondition replace Exception with the particular
         // exception that will be thrown if the service is correctly refused   
-
+            
     }
 
     /**
@@ -58,6 +60,11 @@ public class ReportingTest {
 
     }
 
+    Map<String, Object> fieldData;
+    public void setFieldData(Map<String, Object> dat)
+    {
+        this.fieldData=dat;
+    }
     @Before
     /**
      *
@@ -66,6 +73,16 @@ public class ReportingTest {
         //set up test data to be used by every test
         //this method runs once before every test method and its 
         //members are accessible by the test methods
+         fieldData = new HashMap<String,Object>();
+        fieldData.put("PUBLICATION_TYPE","CONFERENCE PAPER");// other possibilites are journal artile, survey, litrature review, etc
+        fieldData.put("AUTHOR","T. TESTER"); 
+        fieldData.put("CO-AUTHOR(s)","T. TESTER1,T. TESTER2,T. TESTER3");
+        fieldData.put("RESEARCH_GROUP","CIRG");
+        fieldData.put("LIFECYCLE_STATE","REVIEWED"); // other possibilites are REJECTED, ACCEPTED, etc
+        fieldData.put("DATE","18-05-2016"); 
+        
+        setFieldData(fieldData);
+        
     }
 
     @After
@@ -75,4 +92,6 @@ public class ReportingTest {
     public void clean() {
         //whatever needs to be deleted/refreshed before the next test runs
     }
+    
+    
 }
