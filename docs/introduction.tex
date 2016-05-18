@@ -1,24 +1,53 @@
 \section{Introduction}
-The Reporting module of the Research Support System, for the University of Pretoria, is responsible for the generation and visualisation of reports for the following:
+The Reporting module of the Research Support System, for the University of Pretoria, 
+is responsible for the generation and visualisation of reports for the following:
 \begin{itemize}
-	\item Accreditation of research done by researchers at the University of Pretoria, customizable using filters indicated in the Requirements and Design Document or RDS (see section \ref{sec:references}).
-	\item Information pertaining to the status of research projects, customizable by filters indicated in the RDS.
+	\item Accreditation of research done by researchers at the University of Pretoria, 
+	customizable using filters indicated in the Requirements and Design Document or 
+	RDS (see section \ref{sec:references}).
+	\item Information pertaining to the status of research projects, customizable by 
+	filters indicated in the RDS.
 \end{itemize}
-This document contains a detailed analysis and evaluation of the Reporting module, in terms of its adherence to the Requirements and Design Document, and its correctness in general. Two sections prevail, namely a Unit Test Plan and a Unit Test Report, in the order they are specified. Each section is described in detail below. \par Possible constraints of developing a test plan and report for this module is the vague documentation of this module given in the RDS.
+This document contains a detailed analysis and evaluation of the Reporting module, 
+in terms of its adherence to the Requirements and Design Document, and its 
+correctness in general. Two sections prevail, namely a Unit Test Plan and 
+a Unit Test Report, in the order they are specified. Each section is described 
+in detail below. \\
+Where certain items are not explicitly stipulated in the RDS, assumptions will be made.
 
 \subsection{Purpose}
-This document combines the unit test plan, design and report into a single coherent artifact. The constituent Unit Test Plan (UTP) provides an outline of the manner in which the tests will be conducted for the Reporting module of the Research Support System, identify the features that require testing, and provide other necessary information pertaining to the test environment, conditions and evaluation criteria for feature compliance.
-\par The Unit Test Report (UTR) on the other hand will give an indication as to how well the reporting module of the system performs as a measure of the conformance of individual components to their specification. It provides a report on the results of the unit tests that tested the pre and post conditions of the functions contained in the reporting module. In addition the results of the non-functional requirements tests are also provided in this report. Any variances of the test items from their specifications are reported on. The actual testing process has also been evaluated.
+This document combines the unit test plan and report into a single coherent artefact.\\
+The constituent Unit Test Plan (UTP) provides an outline of the manner in which the tests 
+will be conducted for the Reporting module of the Research Support System, identify the 
+features that require testing, and provide other necessary information pertaining to 
+the test environment, conditions and evaluation criteria for feature compliance. \\
+The Unit Test Report (UTR) on the other hand will give an indication as to how well the 
+reporting module of the system performs as a measure conformance of individual 
+components to their specification. It provides a report on the results of the unit 
+tests that tested the pre- and post-conditions of the functions contained in the 
+reporting module. In addition the results of the non-functional requirements 
+tests are also provided in this report. Any variances of the test items 
+from their specifications are reported on. The actual testing process 
+has also been evaluated.
 
 \subsection{Scope}
-The remainder of this document is structured as follows. The features that are considered for testing are listed in section \ref{sec:featuresToTest}. Section \ref{sec:featuresNotToTest} discusses features that will be excluded and reasons therefore. Tests that have been identified from the requirements are discussed in detail in section \ref{sec:testId}. Furthermore, this document outlines the test environment and the risks involved in the testing approaches that will be followed. Assumptions and dependencies of this test plan will also be mentioned. Section \ref{sec:overviewResults}, \ref{sec:detailedResults} and \ref{sec:conclusions} outlines, discusses and concludes on the results of the tests, respectively.
+The scope of this document is structured as follows. The features that are considered 
+for testing are listed in section \ref{sec:featuresToTest}. Section \ref{sec:featuresNotToTest} 
+discusses features that will be excluded and reasons therefore. Tests that have been identified 
+from the requirements are discussed in detail in section \ref{sec:testId}. Furthermore, this 
+document outlines the test environment and the risks involved in the testing approaches that 
+will be followed. Assumptions and dependencies of this test plan will also be mentioned. 
+Section \ref{sec:overviewResults}, \ref{sec:detailedResults} and \ref{sec:conclusions} 
+outlines, discusses and concludes on the results of the tests, respectively.
 
 \section{References} \label{sec:references}
 \subsection{Requirements and Design Document (RDS)}
 \hypersetup{
 	linkcolor = blue
 }
-The master specification for the system in question resides \href{https://clickup.up.ac.za/bbcswebdav/pid-791422-dt-content-rid-8256558_1/xid-8256558_1}{here} and will be referenced throughout this document.
+The master specification for the system in question resides 
+\href{https://clickup.up.ac.za/bbcswebdav/pid-791422-dt-content-rid-8256558_1/xid-8256558_1}{here} 
+and will be referenced throughout this document.
 \hypersetup{
 	linkcolor = black
 }
