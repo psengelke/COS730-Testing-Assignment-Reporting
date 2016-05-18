@@ -1,9 +1,7 @@
 
 \section{Overview of Test Results}
 \label{sec:overviewResults}
-The tests for this module have all failed. We have ran unit tests according to the specification. We utilized a mocking framework, Mockito, for the unit tests on the module. Two main services were required for this module. Namely, getAccreditationUnitsReport and  getProgressReport. These two services can be passed a range of filtering options which will be tested. Filtering options for the AccreditationUnits service include per entity(group or person), per publication type, per selection of lifecycle states and any combination of these. The progress report can only be filtered per entity(group or person), per publication type or both. The respective unit tests for these will be written. The impact of using mock objects here is that this module can be throughly tested without need for external dependencies. 
-
-
+The tests for this module have all failed. The main reasons will be desribed in this document. Unit tests have been compiled according to the specification. We utilized a mocking framework, Mockito, for the unit tests on the module. Two main services were required for this module. Namely, getAccreditationUnitsReport and  getProgressReport. Tests will be conducted to examine whether reports can be generated for the different scenarios specified in the section titled Test Identification in the Unit Test Plan. These scenarios include the filtering options for the AccreditationUnits service and these are: per entity(group or person), per publication type, per selection of lifecycle states and any combination of these. The progress report can only be filtered per entity(group or person), per publication type or both. Unit tests were written to evaluate these. The essential non-functional requirements of the module, identified in the Software Requirements Specification were are also evaluated and the results are described in this report. 
 \section{Detailed Test Results} 
 \label{sec:detailedResults}  
 \subsection{Functional Requirements Test Results}
@@ -74,12 +72,7 @@ conclusion(s).
   \caption{Git Contributions}
 	\includegraphics[scale=0.6]{gitGraph.PNG}
 \end{figure} 
-
-
+ 
 \section{Conclusions and Recommendations}
 \label{sec:conclusions}
-Specify an overall evaluation of each test item, including its limitations. This evaluation will be based
-on the test results and on the item level pass/fail criteria. An estimate of failure risk may be included.
-Recommend its status relative to availability for production use, and under what circumstances (e.g.,
-immediately, with a specified subset of anomalies resolved, or never). This may include identification
-of anomaly clusters in functionality and/or anomaly root cause analysis.
+There were various limitations identified in the testing procedure and these were the main reasons for the failure of the unit tests. Firstly the fact that the module was not implemented according to the contract and secondly the fact that no persistence was used. This is a problem because reports generated would need information from persistence to display. In addition, no reporting framework was used, such as Jasper Reports, which serves as a problem because no report could be generated in the assumed format. Mock objects were not used and thus no mocking framework was used to provide mocks to the unit tests. The tests provided by the group do not test the pre and post conditions and specifications. Hence, we implemented tests to test the services specified in the contracts. Due to the fact that these services were not implemented, the tests failed. Futhermore, the pass criteria specified in the section titled Pass/Fail Criteria inside the Test Plan was not met and hence the tests are considered failed.   
