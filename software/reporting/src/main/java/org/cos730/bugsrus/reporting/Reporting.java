@@ -9,13 +9,9 @@ import org.apache.commons.lang.NotImplementedException;
  * 
  * @author Bugs R Us
  */
-public class Reporting {
+public interface Reporting {
 
-    public AccreditationReportResult getAccreditationReport(AccreditationReportRequest request){
-        throw new NotImplementedException();
-    }
+    public AccreditationReportResult getAccreditationReport(AccreditationReportRequest request) throws NoDataException, InvalidInputException; 
     
-     public ProgressReportResult getProgressReport(ProgressReportRequest request){
-        throw new NotImplementedException();
-    }
+     public ProgressReportResult getProgressReport(ProgressReportRequest request) throws NoDataException, InvalidInputException;
 }
