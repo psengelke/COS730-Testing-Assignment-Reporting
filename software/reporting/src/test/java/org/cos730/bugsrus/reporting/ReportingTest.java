@@ -86,7 +86,16 @@ public class ReportingTest {
 
     @Test
     public void testAccreditationByLifeCycleState() throws Exception {
+        ReportGenerator rg = new ReportGenerator();
+        LinkedList<Filter> filters = new LinkedList<>();
+        filters.add(new LifeCycleStateFilter(LifeCyleState.InRevision));
 
+        AccreditationReportResponse res =
+                rg.requestAccreditationReport(new AccreditationReportRequest(filters));
+        LinkedList<String> lfs = res.getReportData().get("EntityID");
+        for (String e : lfs) {
+            Assert.assertEquals("testAccreditationByLifeCycleState:CorrectLifeCycleState", LifeCyleState.InRevision, e);
+        } 
     }
 
     @Test
