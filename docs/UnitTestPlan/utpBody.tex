@@ -24,9 +24,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Test Items}
+\label{testItems}
 The object under test is the Reporting module in version 1.0 of the Research Support System.
 
 \section{Features to be Tested}
+\label{featuresToTest}
 
 The features to be tested are divided into functional and non-functional tests. The aspects that will be tested and evaluated in these tests are described in the following sections. 
 Describe the overall approach for the level of testing. For each major feature or group of features,
@@ -43,13 +45,13 @@ The approach taken for the functional requirements testing is a black box testin
 	\textbf{Feature ID} & \textbf{RDS Source} & \textbf{Summary} & \textbf{Test Case ID}\\
 	\hline
 	\hline
-	getAccreditationPointsReport & SRS Document, Section 2.4 bullet 1, page 18 & This service ensures that a user can generate a report with information regarding all accreditation units active within a specified time period  &\begin{tabular}[t]{@{}l@{}}
+	getAccreditationPointsReport & RDS Document, Section 2.4 bullet 1, page 18 & This service ensures that a user can generate a report with information regarding all accreditation units active within a specified time period  &\begin{tabular}[t]{@{}l@{}}
 		TC01\\
 		TC02\\
 		TC03\\		
 	\end{tabular}\\
 	\hline
-	getProgressReport & SRS Document, Section 2.4 bullet 2, page 19 & This service ensures that a progress report can be generated containing relevant information and filtered information & TC04\\
+	getProgressReport & RDS Document, Section 2.4 bullet 2, page 19 & This service ensures that a progress report can be generated containing relevant information and filtered information & TC04\\
 	\hline
 	\hline
 \end{tabular}	
@@ -57,13 +59,14 @@ The approach taken for the functional requirements testing is a black box testin
 \subsection{Non-Functional}
 \begin{enumerate}
 \item For the non-functional testing, the code will firstly be evaluated to see whether there is flexibility in terms of the reporting framework used i.e. that the application functionality is not tied to one specific technology. In addition, the persistence provider should also be easily modifiable. 
-\item The maintainability of the code will be evaluated in terms it being easy to understand by future developers who would work on the system. In addition, developers should be able to add and modify the functions in the classes with ease. The technologies chosen for the project will also be evaluated to ensure that they will still be available for a reasonable amount of years following the deployment of the application.
+\item The maintainability of the code will be evaluated in terms it being easy to understand by future developers who would work on the system. In addition, developers should be able to add and modify the functions in the classes with ease. The technologies chosen for the project will also be evaluated to ensure that they will still be available for a reasonable number of years following the deployment of the application.
 \item The system should be reliable and provide a deployment without single points of failure. Reliability of this module will be evaluated 
 \item The testability of the system will be examined by mainly detecting the use of mock objects and automated unit and integration tests. These tests will further be examined as to whether they test whether the service contract in the specification was adhered to.
 \item The deployability of the module will be evaluated to see whether the application could be deployed on an application server.
 \end{enumerate}
 
 \section{Features not to be Tested}
+\label{featuresNotToTest}
 Features that are excluded from this test plan include:
 \begin{itemize}
 	\item Features in modules outside of the Reporting module.
@@ -74,6 +77,7 @@ Features that are excluded from this test plan include:
 For this level of testing, modules were allocated to different teams and therefore this testing activity is restricted to one module. Since the focus is only on verification of requirements, several important non-functional requirements that did not feature in the RDS are also not going to be tested.
 
 \section{Test Identification}
+\label{testIdentification}
 %\begin{itemize}
 %	\item  Objective - Identify and briefly describe the special focus or objective for the test case or a series of test cases.
 %This is much more detailed than the Test Items in the Level Test Plan. It may include the risk or priority for this particular test case or series of test cases.
@@ -207,33 +211,33 @@ For this level of testing, modules were allocated to different teams and therefo
 %\subsection{Outcome}
 
 \section{Item Pass/Fail Criteria}
+\label{passFileCrit}
   
 
 \section{Test Deliverables}
-
-\begin{enumerate}
-	\item List test deliverables, and links to them if available, including the following:
-
-\begin{enumerate}
-	\item Test Plan (this document itself)
+\label{testDeliverables}
+Artifacts to be produced as part of unit testing include the following:
+\begin{itemize}
+	\item Test Plan
 	\item Test Cases 
 	\item Test Reports
-\end{enumerate}
-\end{enumerate} 
+\end{itemize}
+These artifacts have been combined in this master document.
 \section{Test Environment} 
-
-\begin{enumerate} 
-	\item Web Server - no server used in the code provided
-	\item Database - no database used in the code provided
+\label{testEnv}
+A sandboxed environment will be set up to provide reliable and deterministic unit testing. Frameworks will be used to allow for testing code to be more succinct and readable since tests have to be approved by non-technical personnel.
+\par The following are considered for testing:
+\begin{itemize} 
 	\item OS - Linux, Windows, IoS etc.
 	\item Browser - All browsers
 	\item Java Version - version 7
 	\item Testing Framework - JUnit
-	\item List any testing or related tools.
 	\item JUnit - The unit testing framework that will be used to test functional requirements
-\end{enumerate}
+	\item Mockito - Java mocking framework that will be used to automate mock object creation in combination with dependency injection for testing
+\end{itemize}
 
 \section{Risks}
+\label{risks}
 	The following potential risks are found in this module:
 \begin{enumerate}
 	\item Aggregating data for those whose names are incoherent from publication to publication.
@@ -254,9 +258,9 @@ For this level of testing, modules were allocated to different teams and therefo
 \end{enumerate} 
 
 \section{Assumptions and Dependencies}
-
-\begin{enumerate}
+\label{assumptions}
+\begin{itemize}
 	\item The first assumption is that the Jasper Report generated by the module consists of tables with columns for the name of person/group, publication name, publication type, organization associated with publication type, lifecycle state.
 	\item The second assumption is that the module abides by the service contracts and implements the services as specified in the service contracts. In addition, we assume the pre and post conditions for the module hold and hence these will be tested.
 	\item The first dependency is that since Java EE was used for implementation, a Java testing framework will be used for the tests
-\end{enumerate}
+\end{itemize}
