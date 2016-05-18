@@ -74,7 +74,7 @@ Features that are excluded from this test plan include:
 \end{itemize}
 For this level of testing, modules were allocated to different teams and therefore this testing activity is restricted to one module. Since the focus is only on verification of requirements, several important non-functional requirements that did not feature in the RDS are also not going to be tested.
 
-\section{Test Identification}
+\section{Test Cases}
 \label{sec:testId}
 \hypertarget{label}{}
 
@@ -190,6 +190,14 @@ A report filtered by both Entity and PublicationType should be returned.
 
 \section{Item Pass/Fail Criteria}
 \label{sec:passFailCrit}
+
+Each item tested must meet a certain criteria in order to pass. These criteria are as follows:
+\begin{itemize}
+	\item Each item must adhere to the interface requirements specified in the RDS.
+	\item Each item must adhere to their pre- and post-conditions specified in the RDS.
+	\item As a result of the previous criterion, each item must produce the correct output for a number of inputs during unit testing.
+\end{itemize}
+If any of the above criteria are not met, the item will be considered failed.
 
 \section{Test Deliverables}
 \label{sec:testDeliverables}
