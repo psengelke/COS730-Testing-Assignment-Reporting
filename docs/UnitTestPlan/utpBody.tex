@@ -65,74 +65,59 @@ The goal of this test plan is to identify possible flaws in the implementation o
 The constraints of developing a test plan for this module is the vague documentation of this module given in the SRS. 
 \end{enumerate} 
 \section{References} 
-\begin{enumerate}
-	\item List the related documents, with links to them if available, including the following:
-
-\begin{enumerate}
-	\item Project Plan
-	\item Configuration Management Plan
-\end{enumerate}
-\end{enumerate}
+\hypersetup{
+	linkcolor = blue       
+}   
+The master specification for the system in question resides \href{https://clickup.up.ac.za/bbcswebdav/pid-791422-dt-content-rid-8256558_1/xid-8256558_1}{here} and will be referenced throughout this document.
 
 \section{Test Items}
+The object under test is the Reporting module in version 1.0 of the Research Support System.
 
-\begin{enumerate}
-	\item List the test items (software/products) and their versions.
-\end{enumerate}
+\section{Features to be Tested}
 
-\section{Features to be Tested (This section was merged with the approach section)}
-
+The features to be tested are divided into functional and non-functional tests. The aspects that will be tested and evaluated in these tests are described in the following sections. 
 Describe the overall approach for the level of testing. For each major feature or group of features,
 specify the approach that will ensure that they are adequately tested. The approach may be described in
 sufficient detail to permit identification of the major testing tasks and estimation of the time required to
-do each one.\\\\
-Features to be tested (LTP Section 2.3), features not to be tested (LTP Section 2.4), and approaches
-(LTP Section 2.5) are commonly combined in a table called a Test Matrix. It contains a unique
-identifier for each requirement for the test (e.g., system and/or software requirements, design, or code),
-an indication of the source of the requirement (e.g., a paragraph number in the source document), and a
-summary of the requirement and an identification of one or more generic method(s) of test. (as a method we can and should only use black box testing)\\\\
-
-The original IEEE 829 document also has a Test Traceability Matrix section. And it suggests the following at this sections: The Test Matrix may be combined with the Test Traceability Matrix. The Test Traceability Matrix
-links each requirement with one or more test cases.\\\\
-
-I really think we could combine these sections like the above suggests into a table. But we could also just reference the test cases in the same table. The test cases could then reside in a section called Test Identification. What do you think of the following outline for this section:\\\\
+do each one.\\\\ 
 
 \subsection{Functional}
-Describe the approach taken for functional requirements testing. Mention the generic method used for all functional tests (Black box)\\\\
-
-Then we tabulate each feature and provide a reference to the use cases (in Test Identification section) that were identified for each requirement/feature. Where there are no sources to reference for requirements (it's not in the Master Spec) we have to state that it's an assumption. Where do you guys propose we detail these assumptions because Mrs Vreda said we should state them clearly.\\\\
-
+The approach taken for the functional requirements testing is a black box testing approach. This means that the functionality of the application is tested without considering the internal implementation. Hence, one is aware of what the specific module should be able to accomplish but not how the module accomplishes it. Test cases are established based on the Software Requirements Specifications and the pre and post conditions for the Reporting module. Both negative and positive tests will be conducted. There are two main services, firstly to generate a report based on the progress status of the publications and secondly to create a report with information regarding all accreditation units active within a specified time period. Tests will be created to test whether the Reporting module performs the right functions to provide these services accurately. 
 
 \begin{tabular}{ l|l|l|l } 
 	\hline
 	\textbf{Feature ID} & \textbf{SRS Source} & \textbf{Summary} & \textbf{Test Case ID}\\
 	\hline
 	\hline
-	viewReportByGroup & Section x.y & short description &\begin{tabular}[t]{@{}l@{}}
+	getAccreditationPointsReport & Section x.y & This service  &\begin{tabular}[t]{@{}l@{}}
 		TC01\\
 		TC02\\
 		TC03\\		
 	\end{tabular}\\
 	\hline
-	somethingConjured & Assumed & short descriptinon & TC04\\
+	getProgressReport & Assumed & short descriptinon & TC04\\
 	\hline
 	\hline
 \end{tabular}	
 
 \subsection{Non-Functional}
-
-\section{Features not to be Tested}
-
 \begin{enumerate}
-	\item List the features of the software/product which will not be tested.
-	\item Specify the reasons these features won’t be tested.
-\end{enumerate}
+\list For the non-functional testing, firstly the code will be evaluated to see whether there is flexibility in terms of the reporting framework used i.e. that the application functionality is not tied to one specific technology. In addition, the persistence provider should also be easily modifiable. 
+\list The maintainability of the code will be evaluated in terms it being easy to understand by future developers who would work on the system. In addition, developers should be able to add and modify the functions in the classes with ease. The technologies chosen for the project will also be evaluated to ensure that they will still be available for a reasonable amount of years following the deployment of the application.
+\list The system should be reliable and provide a deployment without single points of failure. Reliability of this module will be evaluated 
+\list The testability of the system will be examined by mainly detecting the use of mock objects and automated unit and integration tests. These tests will further be examined as to whether they test whether the service contract in the specification was adhered to.
+\list The deployability of the module will be evaluated to see whether the application could be deployed on an application server.
+\section{Features not to be Tested}
+Features that are excluded from this test plan include:
+\begin{itemize}
+	\item Features in modules outside of the Reporting module.
+	\item Performance
+	\item Scalability
+\end{itemize}
+
+For this level of testing, modules were allocated to different teams and therefore this testing activity is restricted to one module. Since the focus is only on verification of requirements, several important non-functional requirements that did not feature in the SRS are also not going to be tested.
 
 \section{Test Identification}
-
-Here we can then list each and every test that we want to perform. Mostly functional tests, but it could also be non-functional.\\\\
-
-This is what Paul had with Test 1, precondition, post-condition etc. IEEE has the following in that section:
 \begin{itemize}
 	\item  Objective - Identify and briefly describe the special focus or objective for the test case or a series of test cases.
 This is much more detailed than the Test Items in the Level Test Plan. It may include the risk or priority for this particular test case or series of test cases.
@@ -179,69 +164,15 @@ The objective for this test case is to test that a report can be generated for a
 	The inputs required to execute this test case are the user's selection of a particular time frame. This is an optional field and if it is not selected, a report will be generated for the entire period. & 
 	The outcome of this test case should be that a report is generated for the specified time frame& \\ 
 \hline
-	 
+View Report For Specific Person &  
+The objective for this test case is to test that a report can be generated for a specific person, provided the name and surname of said person is entered on the form & 
+	The inputs required to execute this test case are the name and surname of the person for whom the report should be generated& 
+	The outcome of this test case should be that a report is generated for the specified person& \\ 
+\hline	 
 \end{tabular}
 
-\subsection{View Research Group Report}
-\subsubsection{Objective}
-This test case will evaluate the module's functionality specific to the generation of a research group report, containing all the relevant information, where the group is specified by a user.
-
-\subsubsection{Input}
-The user may specify a research group identity. This field is optional.
-
-\subsection{Outcome}
-Where the user specifies a research group,  a report for that group should be generated. 
-Where the user omits this field, a report for the entire department should be generated.
-
-\subsection{View Report For A Specific LifeCycleState}
-\subsubsection{Objective} \label{TC_LifeCycleState_Obj}
-This test case will evaluate the module's functionality for the generation of reports on research in a specific LifeCycleState. The LifeCycleState of some project may be one of the following:
-\begin{itemize}
-	\item InProgress
-	\item Submitted
-	\item Accepted
-	\item InRevision
-	\item Published
-	\item Abandoned
-\end{itemize}
-
-\subsubsection{Input}
-The user may specify any of the LifeCycleStates mentioned in \ref{TC_LifeCycleState_Obj}. 
-This field is optional and may be omitted. Any other input is invalid.
-
-\subsection{Outcome}
-Where the user specifies a valid LifeCycleState, a report should be generated where the included records are only of the specified LifeCycleState. 
-Where the LifeCycleState is omitted, a report containing all projects (with any LifeCycleState) should be generated.
-
-\subsection{View Department Report}
-\subsubsection{Objective}
-This test case evaluates the functionality responsible for departmental report generation
-
-\subsubsection{Input}
-\subsection{Outcome}
-
-\subsection{View Report For A Specific Publication Type}
-\subsubsection{Objective}
-\subsubsection{Input}
-\subsection{Outcome}
-
-\subsection{View Report For A Specific Time Frame}
-\subsubsection{Objective}
-\subsubsection{Input}
-\subsection{Outcome}
-
 \section{Item Pass/Fail Criteria}
-   
-\begin{enumerate}
-	\item Specify the criteria that will be used to determine whether each test item (software/product) has passed or failed testing.
-\end{enumerate}
 
-\section{Suspension Criteria and Resumption Requirements}
-
-\begin{enumerate}
-	\item Specify criteria to be used to suspend the testing activity.
-	\item Specify testing activities which must be redone when testing is resumed.
-\end{enumerate}
 
 \section{Test Deliverables}
 
@@ -250,60 +181,52 @@ This test case evaluates the functionality responsible for departmental report g
 
 \begin{enumerate}
 	\item Test Plan (this document itself)
-	\item Test Cases
-	\item Test Scripts
-	\item Defect/Enhancement Logs
+	\item Test Cases 
 	\item Test Reports
 \end{enumerate}
 \end{enumerate}
 ~
 \section{Test Environment}
 
+I assigned this section to Paul because he spotted a nice way of doing this portrayed in the Sample Master Plan document:P
+
 \begin{enumerate}
-	\item Specify the properties of test environment: hardware, software, network etc.
+	\item The properties of test environment: hardware, software, network etc.
+	\item Web Server - no server used in the code provided
+	\item Database - no database used in the code provided
+	\item OS - Linux, Windows, IoS etc.
+	\item Browser - All browsers
+	\item Java Version - version 7
+	\item Testing Framework - JUnit
 	\item List any testing or related tools.
-\end{enumerate}
-
-\section{Estimate}
-
-\begin{enumerate}
-	\item Provide a summary of test estimates (cost or effort) and/or provide a link to the detailed estimation.
-\end{enumerate}
-
-\section{Schedule}
-
-\begin{enumerate}
-	\item Provide a summary of the schedule, specifying key test milestones, and/or provide a link to the detailed schedule.
-\end{enumerate}
-
-\section{Staffing and Training Needs}
-
-\begin{enumerate}
-	\item Specify staffing needs by role and required skills.
-	\item Identify training that is necessary to provide those skills, if not already acquired.
-\end{enumerate}
-
-\section{Responsibilities}
-
-\begin{enumerate}
-	\item List the responsibilities of each team/role/individual.
+	\item JUnit - The unit testing framework that will be used to test functional requirements
 \end{enumerate}
 
 \section{Risks}
-
+	The following potential risks are found in this module:
 \begin{enumerate}
-	\item List the risks that have been identified.
-	\item Specify the mitigation plan and the contingency plan for each risk.
+	\item Aggregating data for those whose names are incoherent from publication to publication.
+	\item Values  which are out of bounds.
+	\item Database is in an unusable state.
+	\item Too much data to process at once.
 \end{enumerate}
+
+	The following are contingencies which could be used to prevent the potential risks from arising:
+\begin{enumerate}
+
+	\item Do a smart lookup on names and research groups.
+	\item Always do bounds checking.
+	\item Check that the database is in a stable state before attempting to access it.
+	\item Use a map-reduce if necessary.
+         
+
+\end{enumerate}
+
 
 \section{Assumptions and Dependencies}
 
 \begin{enumerate}
-	\item List the assumptions that have been made during the preparation of this plan.
-	\item List the dependencies.
-\end{enumerate}
-\section{Approvals}
-\begin{enumerate}
-	\item Specify the names and roles of all persons who must approve the plan.
-	\item Provide space for signatures and dates. (If the document is to be printed.)
+	\item The first assumption is that the Jasper Report generated by the module consists of tables with columns for the name of person/group, publication name, publication type, organization associated with publication type, lifecycle state.
+	\item The second assumption is that the module abides by the service contracts and implements the services as specified in the service contracts. In addition, we assume the pre and post conditions for the module hold and hence these will be tested.
+	\item The first dependency is that since Java EE was used for implementation, a Java testing framework will be used for the tests
 \end{enumerate}

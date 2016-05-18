@@ -2,6 +2,10 @@ package org.cos730.bugsrus.reporting;
 
 import org.junit.*;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.verify;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -9,16 +13,21 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  * @author Bugs R Us
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ReportingTestConfig.class})
+@RunWith(MockitoJUnitRunner.class)
 public class ReportingTest {
+
+    @Mock
+    Delegate delegateMock;
+
+    @InjectMocks
+    Example example;
 
     /**
      *
      * @throws Exception
      */
     @Test(expected = Exception.class)
-    public void serviceOrMethod1_scenario1() throws Exception {
+    public void getAccreditationUnitsReport_perGroup() throws Exception {
         // when testing a precondition replace Exception with the particular
         // exception that will be thrown if the service is correctly refused   
 
@@ -29,7 +38,8 @@ public class ReportingTest {
      */
     @Test
     public void serviceOrMethod1_scenario2() {
-
+        example.doSomething();        
+        verify(delegateMock).execute();
     }
 
     /**
