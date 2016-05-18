@@ -1,5 +1,6 @@
 
 \section{Overview of Test Results}
+\label{sec:overviewResults}
 
 Summarize the evaluation of the test items. Identify the items tested, indicating their version/revision
 level. Indicate the environment in which the testing activities took place, and its impact (if any).
@@ -8,8 +9,8 @@ level. Indicate the environment in which the testing activities took place, and 
 The tests for this module have all failed. We have ran unit tests according to the specification. The tests all used mock objects to see if this module was working correctly in isolation. We have identified two main services in this module. Namely, AccreditationUnits reports and  progress reports. These two services can be passed a range of filtering options which will be tested. Filtering options for the AccreditationUnits service include per entity(group or person), per publication type, per selection of lifecycle states and any combination of these. The progress report can only be filtered per entity(group or person), per publication type or both. The respective unit tests for these will be written. The impact of using mock objects here is that this module can be throughly tested without need for external dependencies. 
 
 
-\section{Detailed Test Results}
-
+\section{Detailed Test Results} 
+\label{sec:detailedResults} 
 Summarize the results of testing. Identify all resolved anomalies and summarize their resolutions (or
 reference where that information is available). Identify all unresolved anomalies. If anomalies are
 deferred, explain (or reference) the process for handling deferrals.\par
@@ -41,6 +42,7 @@ Specify the issues that were considered for any decisions and the reason(s) for 
 conclusion(s).
 
 \section{Conclusions and Recommendations}
+\label{sec:conclusions}
 Specify an overall evaluation of each test item, including its limitations. This evaluation will be based
 on the test results and on the item level pass/fail criteria. An estimate of failure risk may be included.
 Recommend its status relative to availability for production use, and under what circumstances (e.g.,

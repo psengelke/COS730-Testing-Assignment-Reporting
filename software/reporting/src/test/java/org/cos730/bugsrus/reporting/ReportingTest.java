@@ -2,6 +2,8 @@ package org.cos730.bugsrus.reporting;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.persistence.EntityManager;
+import org.cos730.bugsrus.reporting.mock.ReportGenerator;
 
 import org.junit.*;
 import org.junit.runner.RunWith;
@@ -19,7 +21,23 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class ReportingTest {
 
     private Map<String, Object> fieldData;
+    
+    @Mock
+    private EntityManager em;
+    
+    @InjectMocks
+    private ReportGenerator reportGenerator;
 
+    @Test
+    public void testAccreditationNoData() throws Exception {
+
+    }
+    
+    @Test
+    public void testResearchStatusNoData() throws Exception {
+
+    }
+    
     @Test
     public void testAccreditationByEntity() throws Exception {
 
