@@ -106,7 +106,7 @@ public class ReportingTest {
         }
         for (String e : res.getReportData().get("PublicationLifeCycleState")){
             Assert.assertEquals("testAccreditationByEntity:CorrectPublicationLifeCycleState",
-                    LifeCyleState.InProgress, e);
+                    LifeCyleState.InProgress.toString(), e);
         }
 
         filters = new LinkedList<>();
@@ -118,7 +118,7 @@ public class ReportingTest {
         }
         for (String e : res.getReportData().get("PublicationLifeCycleState")){
             Assert.assertEquals("testAccreditationByEntity:CorrectPublicationLifeCycleState",
-                    LifeCyleState.InProgress, e);
+                    LifeCyleState.InProgress.toString(), e);
         }
     }
 
