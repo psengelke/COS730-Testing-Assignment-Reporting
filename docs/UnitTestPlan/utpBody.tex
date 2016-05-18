@@ -23,7 +23,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Test Items}
+\section{Test Items} \hypertarget{labelp}{}
 The object under test is the Reporting module in version 1.0 of the Research Support System.
 
 \section{Features to be Tested}
@@ -40,7 +40,7 @@ The approach taken for the functional requirements testing is a black box testin
 
 \begin{tabular}{ l|L{3cm}|L{3cm}|l } 
 	\hline
-	\textbf{Feature ID} & \textbf{SRS Source} & \textbf{Summary} & \textbf{Test Case ID}\\
+	\textbf{Feature ID} & \textbf{RDS Source} & \textbf{Summary} & \textbf{Test Case ID}\\
 	\hline
 	\hline
 	getAccreditationPointsReport & SRS Document, Section 2.4 bullet 1, page 18 & This service ensures that a user can generate a report with information regarding all accreditation units active within a specified time period  &\begin{tabular}[t]{@{}l@{}}
@@ -71,7 +71,7 @@ Features that are excluded from this test plan include:
 	\item Scalability
 \end{itemize}
 
-For this level of testing, modules were allocated to different teams and therefore this testing activity is restricted to one module. Since the focus is only on verification of requirements, several important non-functional requirements that did not feature in the SRS are also not going to be tested.
+For this level of testing, modules were allocated to different teams and therefore this testing activity is restricted to one module. Since the focus is only on verification of requirements, several important non-functional requirements that did not feature in the RDS are also not going to be tested.
 
 \section{Test Identification}
 
@@ -188,16 +188,15 @@ A report filtered by both Entity and PublicationType should be returned.
 
 \section{Item Pass/Fail Criteria}
   
-
 \section{Test Deliverables}
 
 \begin{enumerate}
 	\item List test deliverables, and links to them if available, including the following:
 
 \begin{enumerate}
-	\item Test Plan (this document itself)
-	\item Test Cases 
-	\item Test Reports
+	\item \hyperlink{labelp}{Test Plan} 
+	\item \hyperlink{label}{Test Cases} 
+	\item \hyperlink{labelr}{Test Report} 
 \end{enumerate}
 \end{enumerate} 
 \section{Test Environment} 
@@ -240,3 +239,5 @@ A report filtered by both Entity and PublicationType should be returned.
 	\item The second assumption is that the module abides by the service contracts and implements the services as specified in the service contracts. In addition, we assume the pre and post conditions for the module hold and hence these will be tested.
 	\item The first dependency is that since Java EE was used for implementation, a Java testing framework will be used for the tests
 \end{enumerate}
+
+\hypertarget{labelr}{}
