@@ -6,10 +6,8 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 
 import net.sf.jasperreports.engine.JasperReport;
-import org.cos730.bugsrus.reporting.mock.AccreditationReportResponse;
-import org.cos730.bugsrus.reporting.mock.ReportGenerator;
+import org.cos730.bugsrus.reporting.mock.*;
 
-import org.cos730.bugsrus.reporting.mock.AccreditationReportRequest;
 import org.cos730.bugsrus.reporting.mock.filter.EntityFilter;
 import org.cos730.bugsrus.reporting.mock.filter.Filter;
 import org.cos730.bugsrus.reporting.mock.filter.LifeCycleStateFilter;
@@ -81,6 +79,16 @@ public class ReportingTest {
 
     @Test
     public void testAccreditationByPublicationType() throws Exception {
+        ReportGenerator rg = new ReportGenerator();
+        LinkedList<Filter> filters = new LinkedList<>();
+        filters.add(new PublicationFilter(PublicationType.BookChapter));
+
+        AccreditationReportResponse res =
+                rg.requestAccreditationReport(new AccreditationReportRequest(filters));
+        LinkedList<String> lfs = res.getReportData().get("PublicationTypeID");
+        for (String e : lfs) {
+            Assert.assertEquals("testAccreditationByPublicationType:CorrectPublicationType", PublicationType.BookChapter, e);
+        } 
 
     }
 
@@ -106,6 +114,31 @@ public class ReportingTest {
     @Test
     public void testResearchStatusByEntity() throws Exception {
 
+        ReportGenerator rg = new ReportGenerator();
+        LinkedList<Filter> filters = new LinkedList<>();
+        filters.add(new EntityFilter("John", false));
+
+        ProgressStateResponse res =
+                rg.requestProgressStateReport(new ProgressStateReportRequest(filters));
+        for (String e : res.getReportData().get("EntityID")) {
+            Assert.assertEquals("testAccreditationByEntity:CorrectEntity", "John", e);
+        }
+        for (String e : res.getReportData().get("PublicationLifeCycleState")){
+            Assert.assertEquals("testAccreditationByEntity:CorrectPublicationLifeCycleState",
+                    LifeCyleState.InProgress, e);
+        }
+
+        filters = new LinkedList<>();
+        filters.add(new EntityFilter("Group A", true));
+
+        res = rg.requestProgressStateReport(new ProgressStateReportRequest(filters));
+        for (String e : res.getReportData().get("GroupID")) {
+            Assert.assertEquals("testAccreditationByEntity:CorrectGroup", "Group A", e);
+        }
+        for (String e : res.getReportData().get("PublicationLifeCycleState")){
+            Assert.assertEquals("testAccreditationByEntity:CorrectPublicationLifeCycleState",
+                    LifeCyleState.InProgress, e);
+        }
     }
 
     @Test
