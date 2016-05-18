@@ -1,12 +1,7 @@
 
 \section{Overview of Test Results}
 \label{sec:overviewResults}
-
-Summarize the evaluation of the test items. Identify the items tested, indicating their version/revision
-level. Indicate the environment in which the testing activities took place, and its impact (if any).
-%feel free to  edit/add-on
-
-The tests for this module have all failed. We have ran unit tests according to the specification. The tests all used mock objects to see if this module was working correctly in isolation. We have identified two main services in this module. Namely, AccreditationUnits reports and  progress reports. These two services can be passed a range of filtering options which will be tested. Filtering options for the AccreditationUnits service include per entity(group or person), per publication type, per selection of lifecycle states and any combination of these. The progress report can only be filtered per entity(group or person), per publication type or both. The respective unit tests for these will be written. The impact of using mock objects here is that this module can be throughly tested without need for external dependencies. 
+The tests for this module have all failed. We have ran unit tests according to the specification. We utilized a mocking framewor, Mockito, for the unit tests on the module. Two main services were required for this module. Namely, getAccreditationUnitsReport and  getProgressReport. These two services can be passed a range of filtering options which will be tested. Filtering options for the AccreditationUnits service include per entity(group or person), per publication type, per selection of lifecycle states and any combination of these. The progress report can only be filtered per entity(group or person), per publication type or both. The respective unit tests for these will be written. The impact of using mock objects here is that this module can be throughly tested without need for external dependencies. 
 
 
 \section{Detailed Test Results} 
@@ -46,8 +41,6 @@ For each PublicationType as input, the InProgress publications of that type coul
 \subsubsection{By Some Combination }
 A report filtered by both Entity and PublicationType could not be returned since no functionality was implemented with the required filters.
 
-
-
 \subsection{Non-functional Requirements Test Results}
 \begin{enumerate} 
 \item Flexibility - The code provided is not flexible because firstly Jasper reports was not used and thus there is no place where Jasper reports can be easily plugged in for use. Hardcoding has taken place in various places in the code such as the date for the report has been set to 1 Jan 2016 in the constructor of the Entity class and the Research Group progress has also been set to 80 percent in the Group class's constructor. This does not allow for flexibility because the values of such attributes would need to be changed in the code manually. In terms of persistence pluggability, no persistence has been used in the code thus this does not indicate whether or not there can be flexible insertion and modifiability of the persistence provider. Due to the fact that persistence has not been inserted, it can be deduced that the code is not flexible to allow for the use of persistence.
@@ -60,11 +53,11 @@ A report filtered by both Entity and PublicationType could not be returned since
 \begin{enumerate}    
 \item Provide the Maven build with appropriate dependencies
 \begin{figure}[h!]
-  \caption{The maven build}
+  \caption{The Maven Build}
 	\includegraphics[scale=0.6]{mavenBuild1.PNG}
 \end{figure} 
 \begin{figure}[h!]
-  \caption{Their tests}
+  \caption{The tests from the repo provided}
 	\includegraphics[scale=0.6]{mavenBuild2.PNG}
 \end{figure} \\ \\
 \item Use of Jasper Reports - Jasper Reports has not been used in the code and thus no reports are generated. There is no provision in the code for a framework such as Jasper Reports. 
