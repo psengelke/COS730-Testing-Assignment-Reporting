@@ -201,25 +201,51 @@ If any of the above criteria are not met, the item will be considered failed.
 
 \section{Test Deliverables}
 \label{sec:testDeliverables}
-Artifacts to be produced as part of unit testing include the following:
+Artefacts to be produced as part of unit testing include the following:
 \begin{itemize}
 	\item \hyperlink{labelp}{Test Plan}
-	\item \hyperlink{label}{Test Cases}
 	\item \hyperlink{labelr}{Test Report}
 \end{itemize}
-These artifacts have been combined in this master document.
+These artefacts have been combined in this master document.
 
 \section{Test Environment}
 \label{sec:testEnv}
-A sandboxed environment will be set up to provide reliable and deterministic unit testing. Frameworks will be used to allow for testing code to be more succinct and readable since tests have to be approved by non-technical personnel.
-\par The following are considered for testing:
+A sandboxed environment will be set up to provide reliable and deterministic unit testing. Frameworks will be used to allow for testing code to be more succinct and readable since tests have to be approved by non-technical personnel. \\
+
+\textbf{Programming Languages:}\\
+The Research Support System is predominantly written in Java, and the Reporting 
+module in its current state is written solely in Java. \\
+
+\textbf{Testing Frameworks:}\\
+The following testing frameworks and extensions shall used for the Reporting module:
 \begin{itemize}
-	\item OS - Linux, Windows, IoS etc.
-	\item Browser - All browsers
-	\item Java Version - version 7
-	\item Testing Framework - JUnit
-	\item JUnit - The unit testing framework that will be used to test functional requirements
-	\item Mockito - Java mocking framework that will be used to automate mock object creation in combination with dependency injection for testing
+	\item JUnit for functional requirements, 
+	\item Mockito for mocking required objects for functional requirements.
+\end{itemize}
+
+\textbf{Coding Environment:}\\
+The following IDEs are used for test development and Maven build processes:
+\begin{itemize}
+	\item IntelliJ IDEA
+	\item NetBeans
+\end{itemize}
+
+\textbf{Operating System:} \\
+Tests will be conducted on the following operating systems:
+\begin{itemize}
+	\item Windows 10
+	\item Ubuntu 14 (Linux Distribution)
+\end{itemize}
+The Reporting module is written in Java, which is cross-platform, so the 
+expected test results should remain independent of OS environment.\\
+
+\textbf{Internet Browsers:}\\
+The following browsers shall be used in the evaluation of user interface 
+components of the Reporting module:
+\begin{itemize}
+	\item Google Chrome (Version 50.0.2661.102 m)
+	\item Mozilla FireFox (Version 46.0.1)
+	\item Internet Explorer 11
 \end{itemize}
 
 \section{Risks}
