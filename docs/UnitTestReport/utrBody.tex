@@ -35,7 +35,7 @@ Each combination must return a report that only shows information that is within
 \subsection{Progress Reporting} 
 For the service getProgressReport, the associated tests failed and the reasons for this is stated below. 
 
-\subsubsection{By Publication Type} \label{ti_sr_pubtype}
+\subsubsection{By Publication Type}
 For each PublicationType as input, the InProgress publications of that type could not be returned in the report due to the fact that there was no function created to service this request and to create a report based on filters. In addition, there is a lack of reporting framework and persistence.
 
 \subsubsection{By Some Combination }
@@ -53,25 +53,18 @@ A report filtered by both Entity and PublicationType could not be returned since
 \begin{enumerate}    
 \item Provide the Maven build with appropriate dependencies
 \begin{figure}[h!]
-  \caption{The Maven Build}
-	\includegraphics[scale=0.6]{mavenBuild1.PNG}
+	\includegraphics[scale=0.6]{./figures/mavenBuild1.PNG}
+	\caption{The Maven Build}
 \end{figure} 
+
 \begin{figure}[h!]
-  \caption{The tests from the repo provided}
-	\includegraphics[scale=0.6]{mavenBuild2.PNG}
-\end{figure} \\ \\
+	\includegraphics[scale=0.6]{./figures/mavenBuild2.PNG}
+	\caption{The tests from the repo provided.}
+\end{figure}
 \item Use of Jasper Reports - Jasper Reports has not been used in the code and thus no reports are generated. There is no provision in the code for a framework such as Jasper Reports. 
 \item Use of contracts and mock objects - The contracts specified in the Requirements Specification document have not been adhered to or implemented in the module. More specifically the two main services getAccreditationUnitsReport and getProgressReport and their functionality has not been implemented. In terms of mocking, no mocks have been used in the implementation and no mocking framework such as Mockito has been used in the unit tests provided either.
 \item Deployable into application server -The code was not deployed on a server but it would not be ideal to deploy it on a server as a report cannot be generated and hence the functionality is not complete or correct.  
 \end{enumerate}
-
-
-\section{Git Contributions}
-\begin{figure}[h!]
-  \caption{Git Contributions}
-	\includegraphics[scale=0.6]{gitGraph.PNG}
-\end{figure} 
-
 
 \section{Conclusions and Recommendations}
 \label{sec:conclusions}
@@ -80,3 +73,11 @@ on the test results and on the item level pass/fail criteria. An estimate of fai
 Recommend its status relative to availability for production use, and under what circumstances (e.g.,
 immediately, with a specified subset of anomalies resolved, or never). This may include identification
 of anomaly clusters in functionality and/or anomaly root cause analysis.
+
+\newpage
+\appendix
+\section{Git Contributions}
+\begin{figure}[h!]
+	\includegraphics[scale=0.6]{./figures/gitGraph.PNG}
+	\caption{Git Contributions}
+\end{figure} 
