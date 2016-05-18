@@ -21,6 +21,16 @@ public class ReportingTest {
     private Map<String, Object> fieldData;
 
     @Test
+    public void testAccreditationNoData() throws Exception {
+
+    }
+    
+    @Test
+    public void testResearchStatusNoData() throws Exception {
+
+    }
+    
+    @Test
     public void testAccreditationByEntity() throws Exception {
 
     }
