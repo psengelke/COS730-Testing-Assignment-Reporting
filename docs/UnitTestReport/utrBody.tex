@@ -35,9 +35,9 @@ The following results were obtained from the tests conducted. The tests to produ
 
 \subsubsection{By Publication Type}
 \begin{enumerate}
-	\item A report of all publications of PublicationType: Journal, where the accreditation unit value, if published, is included.
-	\item A report of all publications of PublicationType: Conference, where the accreditation unit value, if published, is included.
-	\item A report of all publications of PublicationType: Book Chapter, where the accreditation unit value, is included.
+	\item A report of all publications of PublicationType: Journal, where the accreditation unit value, if published, cannot be generated because there is no functionality to support filtering by publication type furthermore there is no reporting framework in place to generate a report.
+	\item A report of all publications of PublicationType: Conference, where the accreditation unit value, if published, cannot be generated because of the same reasons.  
+	\item A report of all publications of PublicationType: Book Chapter, where the accreditation unit value, cannot be generated as well because of the same reasons stated above.
 \end{enumerate}
 
 
@@ -45,16 +45,16 @@ The following results were obtained from the tests conducted. The tests to produ
 For each of the inputs above, a report of all publications in that state exclusively, where the accreditation unit value is included, must be generated.
 
 \subsubsection{By Some Combination}
-Each combination must return a report that only shows information that is within the filters' constraints.
+Each combination must return a report that only shows information that is within the filters' constraints, since none of the accreditation filters were implemented this is not possible. Furthermore reports cannot be generated due to the lack of a persistance database.
 
 \subsection{Research Status Reporting}
-The following are the expected outcomes for a pass result for the functionality:
+For the service getProgressReport, the associated tests failed and the reasons for this is stated below.
 
 \subsubsection{By Publication Type} \label{ti_sr_pubtype}
 For each PublicationType as input, only those (InProgress) publications of that type should be returned in the report.
 
 \subsubsection{By Some Combination }
-A report filtered by both Entity and PublicationType should be returned.
+A report filtered by both Entity and PublicationType should be returned, this is not possible since no functionality was implemented with the required filters.
 
 
 
