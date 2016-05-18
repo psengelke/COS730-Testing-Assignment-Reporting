@@ -23,6 +23,21 @@ specified group(s) of variances), or reference where it is recorded.\par
 Evaluate the comprehensiveness of the testing process (e.g., coverage metrics, if specified) against the
 comprehensiveness criteria specified in the Level Test Plan, if the plan exists.
 \subsection{Functional Requirements Test Results}
+The tests we have created for this module are contained within the file ReportingTest.java which can be found in the following location: COS730-Testing-Assignment-Reporting/software/reporting/src/test/java/org/cos730/bugsrus/reporting.
+Test Results for the following services that were specified in the Test Identification section of the Test Plan follow:  
+\subsubsection{Accreditation Reporting} 
+\\ The following results were obtained from the tests conducted. The tests to produce the following results have failed and the reasons are stated below.
+\begin{enumerate}
+	\item A report containing information regarding or related to the accreditation target of the specified researcher could not be generated due to the fact there is no persistence used with the data needed to compile the report and secondly a reporting framework such as Jasper Reports was not used. In addition, there is no function in the provided code
+	\item A report containing information regarding or related to the accreditation target of the research group, where the data is an aggregated sum of the individual researchers in the group could not be generated for the same reasons - lack of database and reporting framework.
+	\item An empty report.
+	\item An empty report. 
+\end{enumerate}
+
+\subsubsection{By Publication Type}
+
+\subsubsection{By Life-cycle State}
+
 
 \subsection{Non-functional Requirements Test Results}
 \begin{enumerate} 
@@ -31,11 +46,22 @@ comprehensiveness criteria specified in the Level Test Plan, if the plan exists.
 \item Reliability - The code provided is not reliable due to the fact that the purpose of each class is not stated, the module implementation does not conform to the specification and pre and post conditions and the classes' attributes have been hardcoded.
 \item Deployability - The code was not deployed on a server but it would not be ideal to deploy it on a server as a report cannot be generated and hence the functionality is not complete or correct. 
 \end{enumerate}
-\section{Other Tests and evaluations}
-- Deployable into application server?
-- Provide the Maven build with appropriate dependencies
-- Use of Jasper Reports?
-- Use of contracts and mock objects
+\section{Other Tests and Evaluations}
+ 
+\begin{enumerate}    
+\item Provide the Maven build with appropriate dependencies
+\begin{figure}[h!]
+  \caption{The maven build}
+	\includegraphics[scale=0.6]{mavenBuild1.PNG}
+\end{figure} 
+\begin{figure}[h!]
+  \caption{Their tests}
+	\includegraphics[scale=0.6]{mavenBuild2.PNG}
+\end{figure} \\ \\
+\item Use of Jasper Reports - Jasper Reports has not been used in the code and thus no reports are generated. There is no provision in the code for a framework such as Jasper Reports. 
+\item Use of contracts and mock objects - The contracts specified in the Requirements Specification document have not been adhered to or implemented in the module. More specifically the two main services getAccreditationUnitsReport and getProgressReport and their functionality has not been implemented. In terms of mocking, no mocks have been used in the implementation and no mocking framework such as Mockito has been used in the unit tests provided either.
+\item Deployable into application server -The code was not deployed on a server but it would not be ideal to deploy it on a server as a report cannot be generated and hence the functionality is not complete or correct.  
+\end{enumerate}
 
 \section{Rationale for Decisions}
 Specify the issues that were considered for any decisions and the reason(s) for the selection of the
