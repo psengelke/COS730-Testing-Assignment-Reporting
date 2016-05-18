@@ -1,4 +1,4 @@
-package org.cos730.bugsrus.reporting;
+package org.cos730.bugsrus.reporting.mock;
 
 /**
  *

@@ -5,12 +5,12 @@ package org.cos730.bugsrus.reporting.mock;
  */
 public class ReportGenerator {
 
-    public AccreditationReportResponse requestAccreditationReport(AccreditationReportRequest req){
-
+    public AccreditationReportResponse requestAccreditationReport(AccreditationReportRequest req) throws NoDataException, InvalidInputException{
+ 
         return new AccreditationReportResponse(null);
     }
 
-    public ProgressStateResponse requestProgressStateReport(ProgressStateReportRequest req){
+    public ProgressStateResponse requestProgressStateReport(ProgressStateReportRequest req) throws NoDataException, InvalidInputException{ 
 
         return new ProgressStateResponse(null);
     }
