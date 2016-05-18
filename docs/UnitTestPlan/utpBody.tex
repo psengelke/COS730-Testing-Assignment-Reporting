@@ -44,13 +44,18 @@ The approach taken for the functional requirements testing is a black box testin
 	\textbf{Feature ID} & \textbf{RDS Source} & \textbf{Summary} & \textbf{Test Case ID}\\
 	\hline
 	\hline
-	getAccreditationPointsReport & RDS Document, Section 2.4 bullet 1, page 18 & This service ensures that a user can generate a report with information regarding all accreditation units active within a specified time period  &\begin{tabular}[t]{@{}l@{}}
-		TC01\\
-		TC02\\
-		TC03\\
+	getAccreditationReport & RDS Document, Section 2.4 bullet 1, page 18 & This service ensures that a user can generate a report with information regarding all accreditation units active within a specified time period  &\begin{tabular}[t]{@{}l@{}}
+		\ref{ti_ar_entity}\\
+		\ref{ti_ar_pubtype}\\
+		\ref{ti_ar_lcs}\\
+		\ref{ti_ar_com}\\
 	\end{tabular}\\
 	\hline
-	getProgressReport & RDS Document, Section 2.4 bullet 2, page 19 & This service ensures that a progress report can be generated containing relevant information and filtered information & TC04\\
+	getProgressReport & RDS Document, Section 2.4 bullet 2, page 19 & This service ensures that a progress report can be generated containing relevant information and filtered information & \begin{tabular}[t]{@{}l@{}}
+		\ref{ti_sr_entity}\\
+		\ref{ti_sr_pubtype}\\
+		\ref{ti_sr_com}\\
+	\end{tabular}\\
 	\hline
 	\hline
 \end{tabular}
@@ -141,7 +146,7 @@ The test will be conducted for each of the existing LifeCycleStates, indicated i
 \paragraph{Outcome:}
 For each of the inputs above, a report of all publications in that state exclusively, where the accreditation unit value is included, must be generated.
 
-\subsubsection{By Some Combination of \ref{ti_ar_entity}, \ref{ti_ar_pubtype} \& \ref{ti_ar_lcs}}
+\subsubsection{By Some Combination of \ref{ti_ar_entity}, \ref{ti_ar_pubtype} \& \ref{ti_ar_lcs}} \label{ti_ar_com}
 \paragraph{Objective:}
 This test will evaluate whether or not it is possible to combine multiple filters and generate a report where the result is the concatenation of the applied filters.
 \paragraph{Input:}
@@ -180,7 +185,7 @@ The publications types to be tested are the same as in TC \ref{ti_ar_pubtype}.
 \paragraph{Outcome:}
 For each PublicationType as input, only those (InProgress) publications of that type should be returned in the report.
 
-\subsubsection{By Combination of \ref{ti_sr_entity} \& \ref{ti_sr_pubtype}}
+\subsubsection{By Combination of \ref{ti_sr_entity} \& \ref{ti_sr_pubtype}} \label{ti_sr_com}
 \paragraph{Objective:}
 This test will evaluate whether or not it is possible to combine the filters identified in TC \ref{ti_sr_entity} and TC \ref{ti_sr_pubtype}, and generate a report where the result is the concatenation of the applied filters.
 \paragraph{Input:}
@@ -251,23 +256,20 @@ components of the Reporting module:
 \section{Risks}
 \label{risks}
 	The following potential risks are found in this module:
-\begin{enumerate}
+\begin{itemize}
 	\item Aggregating data for those whose names are incoherent from publication to publication.
 	\item Values  which are out of bounds.
 	\item Database is in an unusable state.
 	\item Too much data to process at once.
-\end{enumerate}
+\end{itemize}
 
 	The following are contingencies which could be used to prevent the potential risks from arising:
-\begin{enumerate}
-
+\begin{itemize}
 	\item Do a smart lookup on names and research groups.
 	\item Always do bounds checking.
 	\item Check that the database is in a stable state before attempting to access it.
 	\item Use a map-reduce if necessary.
-
-
-\end{enumerate}
+\end{itemize}
 
 \section{Assumptions and Dependencies}
 \label{sec:assumptions}
