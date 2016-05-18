@@ -26,11 +26,7 @@ public class ProgressStateResponse {
 
         LinkedList<String> cols = new LinkedList<>();
         cols.add("");
-        cols.add("");
-        cols.add("");
-        cols.add("");
         data.put("EntityID", cols);
-        data.put("GroupID", cols);
         data.put("PublicationName", cols);
         data.put("PublicationType", cols);
         data.put("PublicationLifeCycleState", cols);

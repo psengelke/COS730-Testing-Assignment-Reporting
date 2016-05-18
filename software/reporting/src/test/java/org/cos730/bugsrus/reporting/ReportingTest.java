@@ -82,7 +82,7 @@ public class ReportingTest {
 
         AccreditationReportResponse res =
                 rg.requestAccreditationReport(new AccreditationReportRequest(filters));
-        LinkedList<String> lfs = res.getReportData().get("PublicationTypeID");
+        LinkedList<String> lfs = res.getReportData().get("PublicationType");
         for (String e : lfs) {
             Assert.assertEquals("testAccreditationByPublicationType:CorrectPublicationType", PublicationType.BookChapter, e);
         } 
@@ -161,8 +161,18 @@ public class ReportingTest {
 
     @Test
     public void testResearchStatusByPublicationType() throws Exception {
-        
-    }
+ 
+        ReportGenerator rg = new ReportGenerator();
+        LinkedList<Filter> filters = new LinkedList<>();
+        filters.add(new PublicationFilter(PublicationType.Conference));
+
+        ProgressStateResponse res =
+                rg.requestProgressStateReport(new ProgressStateReportRequest(filters));
+        LinkedList<String> pubs = res.getReportData().get("PublicationName");
+        for (String e : pubs) {
+            Assert.assertEquals("testProgressByPublication:CorrectPublication", PublicationType.Conference, e);
+        }
+   }
 
     @Test
     public void testResearchStatusByCombination() throws Exception {
