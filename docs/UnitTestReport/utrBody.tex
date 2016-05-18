@@ -6,11 +6,11 @@ Summarize the evaluation of the test items. Identify the items tested, indicatin
 level. Indicate the environment in which the testing activities took place, and its impact (if any).
 %feel free to  edit/add-on
 
-The tests for this module have all failed. We have ran unit tests accouding to the specification. The tests all used mock objects to see if this module was working correctly in isolation. We have identified two main services in this module. Namely, AccreditationUnits reports and  progress reports. These two services can be passed a range of filtering options which will be tested. Filtering options for the AccreditationUnits service include per entity(group or person), per publication type, per selection of lifecycle states and any combination of these. The progress report can only be filtered per entity(group or person), per publication type or both. The respective unit tests for these will be written. The impact of using mock objects here is that this module can be throughly tested without need for external dependencies. 
+The tests for this module have all failed. We have ran unit tests according to the specification. The tests all used mock objects to see if this module was working correctly in isolation. We have identified two main services in this module. Namely, AccreditationUnits reports and  progress reports. These two services can be passed a range of filtering options which will be tested. Filtering options for the AccreditationUnits service include per entity(group or person), per publication type, per selection of lifecycle states and any combination of these. The progress report can only be filtered per entity(group or person), per publication type or both. The respective unit tests for these will be written. The impact of using mock objects here is that this module can be throughly tested without need for external dependencies. 
 
 
-\section{Detailed Test Results}
-\label{sec:detailedResults}
+\section{Detailed Test Results} 
+\label{sec:detailedResults} 
 Summarize the results of testing. Identify all resolved anomalies and summarize their resolutions (or
 reference where that information is available). Identify all unresolved anomalies. If anomalies are
 deferred, explain (or reference) the process for handling deferrals.\par
@@ -22,7 +22,15 @@ specified group(s) of variances), or reference where it is recorded.\par
 
 Evaluate the comprehensiveness of the testing process (e.g., coverage metrics, if specified) against the
 comprehensiveness criteria specified in the Level Test Plan, if the plan exists.
+\subsection{Functional Requirements Test Results}
 
+\subsection{Non-functional Requirements Test Results}
+\begin{enumerate} 
+\item Flexibility - The code provided is not flexible because firstly Jasper reports was not used and thus there is no place where Jasper reports can be easily plugged in for use. Hardcoding has taken place in various places in the code such as the date for the report has been set to 1 Jan 2016 in the constructor of the Entity class and the Research Group progress has also been set to 80 percent in the Group class's constructor. This does not allow for flexibility because the values of such attributes would need to be changed in the code manually. In terms of persistence pluggability, no persistence has been used in the code thus this does not indicate whether or not there can be flexible insertion and modifiability of the persistence provider. Due to the fact that persistence has not been inserted, it can be deduced that the code is not flexible to allow for the use of persistence.
+\item Maintainability - The technologies and frameworks used in the project i.e. Java EE, EJB and Maven are quite widely used in industry and there is a sufficient amount of documentation available on these to aid future developers who will work on systems that use them. However, the code at hand does not have in code comments or well documente functions stating the purpose, the parameters and return values and this hence contributes to the fact that the code is not readable and thus it is not maintainable. In addition, due to the fact that no flexibility and pluggability is used, this would make maintenance difficult because one would need go deep into the code to make changes and would need to change more than one part of the code. There are various classes contained in the module, but the purpose of these is not documented and upon further inspection these classes merely consist of getters and setters, which would further confuse the developer as to what function they perform. 
+\item Reliability - The code provided is not reliable due to the fact that the purpose of each class is not stated, the module implementation does not conform to the specification and pre and post conditions and the classes' attributes have been hardcoded.
+\item Deployability - The code was not deployed on a server but it would not be ideal to deploy it on a server as a report cannot be generated and hence the functionality is not complete or correct. 
+\end{enumerate}
 \section{Other Tests and evaluations}
 - Deployable into application server?
 - Provide the Maven build with appropriate dependencies

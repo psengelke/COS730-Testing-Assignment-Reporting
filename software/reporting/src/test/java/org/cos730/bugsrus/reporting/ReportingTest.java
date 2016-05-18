@@ -3,6 +3,8 @@ package org.cos730.bugsrus.reporting;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import javax.persistence.EntityManager;
+import org.cos730.bugsrus.reporting.mock.ReportGenerator;
 
 import org.cos730.bugsrus.reporting.mock.AccreditationReportRequest;
 import org.cos730.bugsrus.reporting.mock.Filter;
@@ -23,6 +25,12 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class ReportingTest {
 
     private Map<String, Object> fieldData;
+    
+    @Mock
+    private EntityManager em;
+    
+    @InjectMocks
+    private ReportGenerator reportGenerator;
 
     private void testNotNullRepsonse() throws Exception {
 
