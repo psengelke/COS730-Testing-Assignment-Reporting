@@ -38,7 +38,7 @@ public class ReportingTest {
     private EntityManager em;
 
     @InjectMocks
-    private ReportGenerator reportGenerator;
+    private ReportGenerator rg;
 
     private void testNotNullRepsonse() throws Exception {
 
@@ -55,9 +55,7 @@ public class ReportingTest {
     }
 
     @Test
-    public void testAccreditationByEntity() throws Exception {
-
-        ReportGenerator rg = new ReportGenerator();
+    public void testAccreditationByEntity() throws Exception {        
         LinkedList<Filter> filters = new LinkedList<>();
         filters.add(new EntityFilter("John", false));
 
@@ -78,8 +76,7 @@ public class ReportingTest {
     }
 
     @Test
-    public void testAccreditationByPublicationType() throws Exception {
-        ReportGenerator rg = new ReportGenerator();
+    public void testAccreditationByPublicationType() throws Exception {        
         LinkedList<Filter> filters = new LinkedList<>();
         filters.add(new PublicationFilter(PublicationType.BookChapter));
 
@@ -93,8 +90,7 @@ public class ReportingTest {
     }
 
     @Test
-    public void testAccreditationByLifeCycleState() throws Exception {
-        ReportGenerator rg = new ReportGenerator();
+    public void testAccreditationByLifeCycleState() throws Exception {        
         LinkedList<Filter> filters = new LinkedList<>();
         filters.add(new LifeCycleStateFilter(LifeCyleState.InRevision));
 
@@ -108,13 +104,35 @@ public class ReportingTest {
 
     @Test
     public void testAccreditationByCombination() throws Exception {
+        LinkedList<Filter> filters = new LinkedList<>();
+        filters.add(new EntityFilter("John", false));
+        filters.add(new LifeCycleStateFilter(LifeCyleState.Submitted));
+        filters.add(new PublicationFilter(PublicationType.Journal));
 
+        AccreditationReportResponse res =
+                rg.requestAccreditationReport(new AccreditationReportRequest(filters));
+        
+        LinkedList<String> names = res.getReportData().get("EntityID");
+        LinkedList<String> lifeCycles = res.getReportData().get("PublicationLifeCycleState");
+        LinkedList<String> types = res.getReportData().get("PublicationType");
+        
+        for (String e : names) {
+            Assert.assertEquals("testAccreditationByEntity:CorrectEntity", "John", e);
+        }  
+        
+        for (String e : lifeCycles) {
+            Assert.assertEquals("testAccreditationByEntity:CorrectLifeCycle", LifeCyleState.Submitted, e);
+        }
+        
+        for (String e : types) {
+            Assert.assertEquals("testAccreditationByEntity:CorrectPublicationType", PublicationType.Journal, e);
+        }
     }
 
     @Test
     public void testResearchStatusByEntity() throws Exception {
 
-        ReportGenerator rg = new ReportGenerator();
+        
         LinkedList<Filter> filters = new LinkedList<>();
         filters.add(new EntityFilter("John", false));
 
@@ -143,12 +161,28 @@ public class ReportingTest {
 
     @Test
     public void testResearchStatusByPublicationType() throws Exception {
-
+        
     }
 
     @Test
     public void testResearchStatusByCombination() throws Exception {
+LinkedList<Filter> filters = new LinkedList<>();
+        filters.add(new EntityFilter("John", false));
+        filters.add(new PublicationFilter(PublicationType.Conference));
 
+        AccreditationReportResponse res =
+                rg.requestAccreditationReport(new AccreditationReportRequest(filters));
+        
+        LinkedList<String> names = res.getReportData().get("EntityID");
+        LinkedList<String> types = res.getReportData().get("PublicationType");
+        
+        for (String e : names) {
+            Assert.assertEquals("testAccreditationByEntity:CorrectEntity", "John", e);
+        }               
+        
+        for (String e : types) {
+            Assert.assertEquals("testAccreditationByEntity:CorrectPublicationType", PublicationType.Conference, e);
+        }
     }
 
     /**
