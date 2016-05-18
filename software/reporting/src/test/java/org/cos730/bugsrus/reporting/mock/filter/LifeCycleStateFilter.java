@@ -8,7 +8,7 @@ import org.cos730.bugsrus.reporting.mock.types.LifeCyleState;
 public class LifeCycleStateFilter implements Filter {
 
     public LifeCycleStateFilter(LifeCyleState state){
-        
+
     }
 
     @Override
