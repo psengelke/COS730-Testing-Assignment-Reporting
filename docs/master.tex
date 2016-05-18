@@ -11,6 +11,14 @@
 \usepackage{wrapfig}
 \usepackage{import}
 
+\hypersetup{
+	colorlinks = true,    
+}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
 \setlength{\parindent}{0pt}
 
 \begin{document}
@@ -22,6 +30,13 @@
 \tableofcontents
 \newpage
 
-\subimport{UnitTestPlan/}{utp}
-\subimport{UnitTestReport/}{utr}	
-\end{document}}
+{\centering \textbf{\LARGE Unit Test Plan} \par}
+\newpage
+\subimport{./UnitTestPlan/}{utpBody}
+\newpage
+
+{\centering \textbf{\LARGE Unit Test Report} \par}
+\newpage
+\subimport{./UnitTestReport/}{utrBody}	
+
+\end{document}

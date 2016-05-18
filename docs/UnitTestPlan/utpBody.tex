@@ -102,11 +102,12 @@ The approach taken for the functional requirements testing is a black box testin
 
 \subsection{Non-Functional}
 \begin{enumerate}
-\list For the non-functional testing, firstly the code will be evaluated to see whether there is flexibility in terms of the reporting framework used i.e. that the application functionality is not tied to one specific technology. In addition, the persistence provider should also be easily modifiable. 
-\list The maintainability of the code will be evaluated in terms it being easy to understand by future developers who would work on the system. In addition, developers should be able to add and modify the functions in the classes with ease. The technologies chosen for the project will also be evaluated to ensure that they will still be available for a reasonable amount of years following the deployment of the application.
-\list The system should be reliable and provide a deployment without single points of failure. Reliability of this module will be evaluated 
-\list The testability of the system will be examined by mainly detecting the use of mock objects and automated unit and integration tests. These tests will further be examined as to whether they test whether the service contract in the specification was adhered to.
-\list The deployability of the module will be evaluated to see whether the application could be deployed on an application server.
+\item For the non-functional testing, firstly the code will be evaluated to see whether there is flexibility in terms of the reporting framework used i.e. that the application functionality is not tied to one specific technology. In addition, the persistence provider should also be easily modifiable. 
+\item The maintainability of the code will be evaluated in terms it being easy to understand by future developers who would work on the system. In addition, developers should be able to add and modify the functions in the classes with ease. The technologies chosen for the project will also be evaluated to ensure that they will still be available for a reasonable amount of years following the deployment of the application.
+\item The system should be reliable and provide a deployment without single points of failure. Reliability of this module will be evaluated 
+\item The testability of the system will be examined by mainly detecting the use of mock objects and automated unit and integration tests. These tests will further be examined as to whether they test whether the service contract in the specification was adhered to.
+\item The deployability of the module will be evaluated to see whether the application could be deployed on an application server.
+\end{enumerate}
 \section{Features not to be Tested}
 Features that are excluded from this test plan include:
 \begin{itemize}
@@ -170,6 +171,55 @@ The objective for this test case is to test that a report can be generated for a
 	The outcome of this test case should be that a report is generated for the specified person& \\ 
 \hline	 
 \end{tabular}
+
+\subsection{View Research Group Report}
+\subsubsection{Objective}
+This test case will evaluate the module's functionality specific to the generation of a research group report, containing all the relevant information, where the group is specified by a user.
+
+\subsubsection{Input}
+The user may specify a research group identity. This field is optional.
+
+\subsection{Outcome}
+Where the user specifies a research group,  a report for that group should be generated. 
+Where the user omits this field, a report for the entire department should be generated.
+
+\subsection{View Report For A Specific LifeCycleState}
+\subsubsection{Objective} \label{TC_LifeCycleState_Obj}
+This test case will evaluate the module's functionality for the generation of reports on research in a specific LifeCycleState. The LifeCycleState of some project may be one of the following:
+\begin{itemize}
+	\item InProgress
+	\item Submitted
+	\item Accepted
+	\item InRevision
+	\item Published
+	\item Abandoned
+\end{itemize}
+\subsubsection{Input}
+The user may specify any of the LifeCycleStates mentioned in \ref{TC_LifeCycleState_Obj}. 
+This field is optional and may be omitted. Any other input is invalid.
+
+\subsection{Outcome}
+Where the user specifies a valid LifeCycleState, a report should be generated where the included records are only of the specified LifeCycleState. 
+Where the LifeCycleState is omitted, a report containing all projects (with any LifeCycleState) should be generated.
+
+\subsection{View Department Report}
+\subsubsection{Objective}
+This test case evaluates the functionality responsible for departmental report generation
+
+\subsubsection{Input}
+\subsection{Outcome}
+
+\subsection{View Report For A Specific Publication Type}
+\subsubsection{Objective}
+\subsubsection{Input}
+\subsection{Outcome}
+
+\subsection{View Report For A Specific Time Frame}
+\subsubsection{Objective}
+\subsubsection{Input}
+\subsection{Outcome}
+\section{Item Pass/Fail Criteria}
+
 
 \section{Item Pass/Fail Criteria}
 
