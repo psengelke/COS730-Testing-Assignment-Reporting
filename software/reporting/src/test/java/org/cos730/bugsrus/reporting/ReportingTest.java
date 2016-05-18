@@ -6,8 +6,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import static org.mockito.Mockito.verify;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *
@@ -16,47 +14,41 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class ReportingTest {
 
-    @Mock
-    Delegate delegateMock;
-
-    @InjectMocks
-    Example example;
-
-    /**
-     *
-     * @throws Exception
-     */
-    @Test(expected = Exception.class)
-    public void getAccreditationUnitsReport_perGroup() throws Exception {
-        // when testing a precondition replace Exception with the particular
-        // exception that will be thrown if the service is correctly refused   
-
-    }
-
-    /**
-     *
-     */
     @Test
-    public void serviceOrMethod1_scenario2() {
-        example.doSomething();        
-        verify(delegateMock).execute();
+    public void testAccreditationByEntity() throws Exception {
+
     }
 
-    /**
-     *
-     */
     @Test
-    public void serviceOrMethod2_scenario1() {
+    public void testAccreditationByPublicationType() throws Exception {
 
     }
 
-    /**
-     *
-     */
     @Test
-    public void serviceOrMethod2_scenario2() {
+    public void testAccreditationByLifeCycleState() throws Exception {
 
     }
+
+    @Test
+    public void testAccreditationByCombination() throws Exception {
+
+    }
+
+    @Test
+    public void testResearchStatusByEntity() throws Exception {
+
+    }
+
+    @Test
+    public void testResearchStatusByPublicationType() throws Exception {
+
+    }
+
+    @Test
+    public void testResearchStatusByCombination() throws Exception {
+
+    }
+
 
     @Before
     /**
