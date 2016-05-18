@@ -1,8 +1,12 @@
 package org.cos730.bugsrus.reporting;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
+import org.cos730.bugsrus.reporting.mock.AccreditationReportRequest;
+import org.cos730.bugsrus.reporting.mock.Filter;
+import org.cos730.bugsrus.reporting.mock.ReportGenerator;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -20,9 +24,17 @@ public class ReportingTest {
 
     private Map<String, Object> fieldData;
 
+    private void testNotNullRepsonse() throws Exception {
+
+    }
+
     @Test
     public void testAccreditationNoData() throws Exception {
 
+        ReportGenerator rg = new ReportGenerator();
+        LinkedList<Filter> filters = new LinkedList<>();
+        filters.add(new Filter("name:John"));
+        Assert.assertNotSame(null, rg.requestAccreditationReport(new AccreditationReportRequest(filters)).getReport());
     }
     
     @Test
@@ -32,6 +44,7 @@ public class ReportingTest {
     
     @Test
     public void testAccreditationByEntity() throws Exception {
+
 
     }
 
