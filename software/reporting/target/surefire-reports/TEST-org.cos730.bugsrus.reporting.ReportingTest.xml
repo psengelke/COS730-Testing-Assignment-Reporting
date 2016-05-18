@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="org.cos730.bugsrus.reporting.ReportingTest" time="0.245" errors="1" skipped="0">
+<testsuite tests="9" failures="1" name="org.cos730.bugsrus.reporting.ReportingTest" time="0.213" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="15.0.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -70,29 +70,10 @@
   <testcase classname="org.cos730.bugsrus.reporting.ReportingTest" name="testResearchStatusByPublicationType" time="0"/>
   <testcase classname="org.cos730.bugsrus.reporting.ReportingTest" name="testResearchStatusNoData" time="0"/>
   <testcase classname="org.cos730.bugsrus.reporting.ReportingTest" name="testResearchStatusByEntity" time="0"/>
-  <testcase classname="org.cos730.bugsrus.reporting.ReportingTest" name="testAccreditationByEntity" time="0.006">
-    <error message="
-when() requires an argument which has to be &apos;a method call on a mock&apos;.
-For example:
-    when(mock.getArticles()).thenReturn(articles);
-
-Also, this error might show up because:
-1. you stub either of: final/private/equals()/hashCode() methods.
-   Those methods *cannot* be stubbed/verified.
-   Mocking methods declared on non-public parent classes is not supported.
-2. inside when() you don&apos;t call method on mock but on some other object.
-" type="org.mockito.exceptions.misusing.MissingMethodInvocationException">org.mockito.exceptions.misusing.MissingMethodInvocationException: 
-when() requires an argument which has to be &apos;a method call on a mock&apos;.
-For example:
-    when(mock.getArticles()).thenReturn(articles);
-
-Also, this error might show up because:
-1. you stub either of: final/private/equals()/hashCode() methods.
-   Those methods *cannot* be stubbed/verified.
-   Mocking methods declared on non-public parent classes is not supported.
-2. inside when() you don&apos;t call method on mock but on some other object.
-
-	at org.cos730.bugsrus.reporting.ReportingTest.testAccreditationByEntity(ReportingTest.java:90)
+  <testcase classname="org.cos730.bugsrus.reporting.ReportingTest" name="testAccreditationByEntity" time="0.005">
+    <failure message="testAccreditationByEntity:CorrectEntity expected:&lt;[John]&gt; but was:&lt;[]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: testAccreditationByEntity:CorrectEntity expected:&lt;[John]&gt; but was:&lt;[]&gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.cos730.bugsrus.reporting.ReportingTest.testAccreditationByEntity(ReportingTest.java:70)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -126,7 +107,7 @@ Also, this error might show up because:
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-</error>
+</failure>
   </testcase>
   <testcase classname="org.cos730.bugsrus.reporting.ReportingTest" name="testAccreditationNoData" time="0"/>
 </testsuite>
