@@ -4,11 +4,12 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import javax.persistence.EntityManager;
+
+import net.sf.jasperreports.engine.JasperReport;
 import org.cos730.bugsrus.reporting.mock.ReportGenerator;
 
 import org.cos730.bugsrus.reporting.mock.AccreditationReportRequest;
-import org.cos730.bugsrus.reporting.mock.Filter;
-import org.cos730.bugsrus.reporting.mock.ReportGenerator;
+import org.cos730.bugsrus.reporting.mock.filter.Filter;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -42,12 +43,25 @@ public class ReportingTest {
         ReportGenerator rg = new ReportGenerator();
         LinkedList<Filter> filters = new LinkedList<>();
         filters.add(new Filter("name:John"));
-        Assert.assertNotSame(null, rg.requestAccreditationReport(new AccreditationReportRequest(filters)).getReport());
+
+        JasperReport report = rg.requestAccreditationReport(new AccreditationReportRequest(filters)).getReport();
+        Assert.assertNotSame(null, report);
+
+        Assert.assertEquals("No data returned?", 0, report.getFields().length);
     }
     
     @Test
     public void testResearchStatusNoData() throws Exception {
 
+        ReportGenerator rg = new ReportGenerator();
+        LinkedList<Filter> filters = new LinkedList<>();
+        filters.add(new Filter("LifeCycleState:InProgress"));
+        filters.add(new Filter("name:John"));
+
+        JasperReport report = rg.requestAccreditationReport(new AccreditationReportRequest(filters)).getReport();
+        Assert.assertNotSame(null, report);
+
+        Assert.assertEquals("No data returned?", 0, report.getFields().length);
     }
     
     @Test

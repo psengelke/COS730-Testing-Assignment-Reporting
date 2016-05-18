@@ -1,5 +1,8 @@
 package org.cos730.bugsrus.reporting.mock;
 
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.base.JRBaseReport;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
