@@ -25,8 +25,8 @@ comprehensiveness criteria specified in the Level Test Plan, if the plan exists.
 \subsection{Functional Requirements Test Results}
 The tests we have created for this module are contained within the file ReportingTest.java which can be found in the following location: COS730-Testing-Assignment-Reporting/software/reporting/src/test/java/org/cos730/bugsrus/reporting.
 Test Results for the following services that were specified in the Test Identification section of the Test Plan follow:  
-\subsubsection{Accreditation Reporting} 
-The following results were obtained from the tests conducted. The tests to produce the following results have failed and the reasons are stated below.
+\subsubsection{Accreditation Reporting}  
+The following results were obtained from the tests conducted. The tests to produce the following results have failed and the reasons are stated below. 
 \begin{enumerate}
 	\item A report containing information regarding or related to the accreditation target of the specified researcher could not be generated due to the fact there is no persistence used with the data needed to compile the report and secondly a reporting framework such as Jasper Reports was not used. In addition, there are no functions in the provided code to handle such a request or provide the necessary functionality. 
 	\item A report containing information regarding or related to the accreditation target of the research group, where the data is an aggregated sum of the individual researchers in the group could not be generated for the same reasons could not be generated due to a lack of database and reporting framework in addition to the fact that there is no function to handle such a request.
@@ -34,8 +34,28 @@ The following results were obtained from the tests conducted. The tests to produ
 \end{enumerate}
 
 \subsubsection{By Publication Type}
+\begin{enumerate}
+	\item A report of all publications of PublicationType: Journal, where the accreditation unit value, if published, is included.
+	\item A report of all publications of PublicationType: Conference, where the accreditation unit value, if published, is included.
+	\item A report of all publications of PublicationType: Book Chapter, where the accreditation unit value, is included.
+\end{enumerate}
+
 
 \subsubsection{By Life-cycle State}
+For each of the inputs above, a report of all publications in that state exclusively, where the accreditation unit value is included, must be generated.
+
+\subsubsection{By Some Combination}
+Each combination must return a report that only shows information that is within the filters' constraints.
+
+\subsection{Research Status Reporting}
+The following are the expected outcomes for a pass result for the functionality:
+
+\subsubsection{By Publication Type} \label{ti_sr_pubtype}
+For each PublicationType as input, only those (InProgress) publications of that type should be returned in the report.
+
+\subsubsection{By Some Combination }
+A report filtered by both Entity and PublicationType should be returned.
+
 
 
 \subsection{Non-functional Requirements Test Results}
