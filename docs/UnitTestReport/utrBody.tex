@@ -3,6 +3,10 @@
 
 Summarize the evaluation of the test items. Identify the items tested, indicating their version/revision
 level. Indicate the environment in which the testing activities took place, and its impact (if any).
+%feel free to  edit/add-on
+
+The tests for this module have all failed. We have ran unit tests accouding to the specification. The tests all used mock objects to see if this module was working correctly in isolation. We have identified two main services in this module. Namely, AccreditationUnits reports and  progress reports. These two services can be passed a range of filtering options which will be tested. Filtering options for the AccreditationUnits service include per entity(group or person), per publication type, per selection of lifecycle states and any combination of these. The progress report can only be filtered per entity(group or person), per publication type or both. The respective unit tests for these will be written. The impact of using mock objects here is that this module can be throughly tested without need for external dependencies. 
+
 
 \section{Detailed Test Results}
 
