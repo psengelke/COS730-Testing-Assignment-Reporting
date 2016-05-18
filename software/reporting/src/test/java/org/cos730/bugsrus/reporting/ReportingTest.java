@@ -63,17 +63,20 @@ public class ReportingTest {
         LinkedList<Filter> filters = new LinkedList<>();
         filters.add(new EntityFilter("John", false));
 
-        // mocking
         AccreditationReportResponse res =
                 rg.requestAccreditationReport(new AccreditationReportRequest(filters));
-        HashMap<String, LinkedList<String>> dummy = new HashMap<>();
-        LinkedList<String> list = new LinkedList<>();
-        list.add("");
-        dummy.put("EntityName", new LinkedList<>());
-        when(res.getReportData()).thenReturn(dummy);
+        LinkedList<String> names = res.getReportData().get("EntityID");
+        for (String e : names) {
+            Assert.assertEquals("testAccreditationByEntity:CorrectEntity", "John", e);
+        }
 
-        String name = dummy.get("EntityName").get(0);
-        Assert.assertEquals("testAccreditationByEntity:CorrectEntity", "John", name);
+        filters = new LinkedList<>();
+        filters.add(new EntityFilter("Group A", true));
+
+        res = rg.requestAccreditationReport(new AccreditationReportRequest(filters));
+        HashMap<String, LinkedList<String>> data = res.getReportData();
+        Assert.assertEquals("testAccreditationByEntity:SingleGroup", 1, data.get("EntityID").size());
+        Assert.assertEquals("testAccreditationByEntity:CorrectGroup", "Group A", data.get("EntityID").getFirst());
     }
 
     @Test
