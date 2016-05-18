@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 
 import net.sf.jasperreports.engine.JasperReport;
+import org.cos730.bugsrus.reporting.mock.AccreditationReportResponse;
 import org.cos730.bugsrus.reporting.mock.ReportGenerator;
 
 import org.cos730.bugsrus.reporting.mock.AccreditationReportRequest;
@@ -16,13 +17,16 @@ import org.cos730.bugsrus.reporting.mock.filter.PublicationFilter;
 import org.cos730.bugsrus.reporting.mock.types.LifeCyleState;
 import org.cos730.bugsrus.reporting.mock.types.PublicationType;
 import org.junit.*;
+import org.junit.runner.Request;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.stubbing.OngoingStubbing;
 
 /**
  * @author Bugs R Us
@@ -31,10 +35,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class ReportingTest {
 
     private Map<String, Object> fieldData;
-    
+
     @Mock
     private EntityManager em;
-    
+
     @InjectMocks
     private ReportGenerator reportGenerator;
 
@@ -45,34 +49,31 @@ public class ReportingTest {
     @Test
     public void testAccreditationNoData() throws Exception {
 
-        ReportGenerator rg = new ReportGenerator();
-        LinkedList<Filter> filters = new LinkedList<>();
-        filters.add(new EntityFilter("John", false));
-
-        JasperReport report = rg.requestAccreditationReport(new AccreditationReportRequest(filters)).getReport();
-        Assert.assertNotSame(null, report);
-
-        Assert.assertEquals("No data returned?", 0, report.getFields().length);
     }
-    
+
     @Test
     public void testResearchStatusNoData() throws Exception {
 
-        ReportGenerator rg = new ReportGenerator();
-        LinkedList<Filter> filters = new LinkedList<>();
-        filters.add(new EntityFilter("John", false));
-        filters.add(new PublicationFilter(PublicationType.Conference));
-
-        JasperReport report = rg.requestAccreditationReport(new AccreditationReportRequest(filters)).getReport();
-        Assert.assertNotSame(null, report);
-
-        Assert.assertEquals("No data returned?", 0, report.getFields().length);
     }
-    
+
     @Test
     public void testAccreditationByEntity() throws Exception {
 
+        ReportGenerator rg = new ReportGenerator();
+        LinkedList<Filter> filters = new LinkedList<>();
+        filters.add(new EntityFilter("John", false));
 
+        // mocking
+        AccreditationReportResponse res =
+                rg.requestAccreditationReport(new AccreditationReportRequest(filters));
+        HashMap<String, LinkedList<String>> dummy = new HashMap<>();
+        LinkedList<String> list = new LinkedList<>();
+        list.add("");
+        dummy.put("EntityName", new LinkedList<>());
+        when(res.getReportData()).thenReturn(dummy);
+
+        String name = dummy.get("EntityName").get(0);
+        Assert.assertEquals("testAccreditationByEntity:CorrectEntity", "John", name);
     }
 
     @Test
