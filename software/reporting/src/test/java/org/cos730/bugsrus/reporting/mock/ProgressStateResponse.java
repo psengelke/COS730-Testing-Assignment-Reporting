@@ -22,6 +22,21 @@ public class ProgressStateResponse {
 
     public HashMap<String, LinkedList<String>> getReportData(){
 
-        return null;
+        HashMap<String, LinkedList<String>> data = new HashMap<>();
+
+        LinkedList<String> cols = new LinkedList<>();
+        cols.add("");
+        cols.add("");
+        cols.add("");
+        cols.add("");
+        data.put("EntityID", cols);
+        data.put("GroupID", cols);
+        data.put("PublicationName", cols);
+        data.put("PublicationType", cols);
+        data.put("PublicationLifeCycleState", cols);
+        data.put("PublicationCredit", cols);
+        data.put("PublicationData", cols);
+
+        return data;
     }
 }
