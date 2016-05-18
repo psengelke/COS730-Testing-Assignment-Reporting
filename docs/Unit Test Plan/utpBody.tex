@@ -182,6 +182,54 @@ The objective for this test case is to test that a report can be generated for a
 	 
 \end{tabular}
 
+\subsection{View Research Group Report}
+\subsubsection{Objective}
+This test case will evaluate the module's functionality specific to the generation of a research group report, containing all the relevant information, where the group is specified by a user.
+
+\subsubsection{Input}
+The user may specify a research group identity. This field is optional.
+
+\subsection{Outcome}
+Where the user specifies a research group,  a report for that group should be generated. 
+Where the user omits this field, a report for the entire department should be generated.
+
+\subsection{View Report For A Specific LifeCycleState}
+\subsubsection{Objective} \label{TC_LifeCycleState_Obj}
+This test case will evaluate the module's functionality for the generation of reports on research in a specific LifeCycleState. The LifeCycleState of some project may be one of the following:
+\begin{itemize}
+	\item InProgress
+	\item Submitted
+	\item Accepted
+	\item InRevision
+	\item Published
+	\item Abandoned
+\end{itemize}
+
+\subsubsection{Input}
+The user may specify any of the LifeCycleStates mentioned in \ref{TC_LifeCycleState_Obj}. 
+This field is optional and may be omitted. Any other input is invalid.
+
+\subsection{Outcome}
+Where the user specifies a valid LifeCycleState, a report should be generated where the included records are only of the specified LifeCycleState. 
+Where the LifeCycleState is omitted, a report containing all projects (with any LifeCycleState) should be generated.
+
+\subsection{View Department Report}
+\subsubsection{Objective}
+This test case evaluates the functionality responsible for departmental report generation
+
+\subsubsection{Input}
+\subsection{Outcome}
+
+\subsection{View Report For A Specific Publication Type}
+\subsubsection{Objective}
+\subsubsection{Input}
+\subsection{Outcome}
+
+\subsection{View Report For A Specific Time Frame}
+\subsubsection{Objective}
+\subsubsection{Input}
+\subsection{Outcome}
+
 \section{Item Pass/Fail Criteria}
    
 \begin{enumerate}
