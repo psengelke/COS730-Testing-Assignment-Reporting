@@ -32,11 +32,13 @@ comprehensiveness criteria specified in the Level Test Plan, if the plan exists.
 \item Deployability - The code was not deployed on a server but it would not be ideal to deploy it on a server as a report cannot be generated and hence the functionality is not complete or correct. 
 \end{enumerate}
 \section{Other Tests and evaluations}
-- Deployable into application server?
-- Provide the Maven build with appropriate dependencies
-- Use of Jasper Reports?
-- Use of contracts and mock objects
+\begin{enumerate}
 
+\item Provide the Maven build with appropriate dependencies
+\item Use of Jasper Reports - Jasper Reports has not been used in the code and thus no reports are generated. There is no provision in the code for a framework such as Jasper Reports. 
+\item Use of contracts and mock objects - The contracts specified in the Requirements Specification document have not been adhered to or implemented in the module. More specifically the two main services getAccreditationUnitsReport and getProgressReport and their functionality has not been implemented. In terms of mocking, no mocks have been used in the implementation and no mocking framework such as Mockito has been used in the unit tests provided either.
+\item Deployable into application server -The code was not deployed on a server but it would not be ideal to deploy it on a server as a report cannot be generated and hence the functionality is not complete or correct.  
+\end{enumerate}
 \section{Rationale for Decisions}
 Specify the issues that were considered for any decisions and the reason(s) for the selection of the
 conclusion(s).
