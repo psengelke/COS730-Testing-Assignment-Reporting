@@ -232,3 +232,4 @@ TSWLatexianTemp*
 # KBibTeX
 *~[0-9]*
 /software/reporting-git/Testing/target/
+/software/reporting-git/target/
