@@ -95,105 +95,138 @@ Features that are excluded from this test plan include:
 For this level of testing, modules were allocated to different teams and therefore this testing activity is restricted to one module. Since the focus is only on verification of requirements, several important non-functional requirements that did not feature in the SRS are also not going to be tested.
 
 \section{Test Identification}
-\begin{itemize}
-	\item  Objective - Identify and briefly describe the special focus or objective for the test case or a series of test cases.
-This is much more detailed than the Test Items in the Level Test Plan. It may include the risk or priority for this particular test case or series of test cases.
-	\item  Inputs - Specify each input required to execute each test case. Some inputs will be specified by value (with
-tolerances where appropriate), whereas others, such as constant tables or transaction files, will be
-specified by name. Identify all appropriate databases, files, terminal messages, memory resident areas,
-and values passed by the operating system.
-	\item  Outcome(s) - Specify all outputs and the expected behavior (e.g., response time) required of the test items. Provide
-the exact value (s) (with tolerances where appropriate) for each required output and expected behavior.
-This section is not required for self-validating tests.
-\end{itemize}
+%\begin{itemize}
+%	\item  Objective - Identify and briefly describe the special focus or objective for the test case or a series of test cases.
+%This is much more detailed than the Test Items in the Level Test Plan. It may include the risk or priority for this particular test case or series of test cases.
+%	\item  Inputs - Specify each input required to execute each test case. Some inputs will be specified by value (with
+%tolerances where appropriate), whereas others, such as constant tables or transaction files, will be
+%specified by name. Identify all appropriate databases, files, terminal messages, memory resident areas,
+%and values passed by the operating system.
+%	\item  Outcome(s) - Specify all outputs and the expected behavior (e.g., response time) required of the test items. Provide
+%the exact value (s) (with tolerances where appropriate) for each required output and expected behavior.
+%This section is not required for self-validating tests.
+%\end{itemize}
+%
+%Which we can again tabulate if you want: \\\\
+%\begin{tabular}{ L{3cm}| L{3cm}| L{3cm}| L{3cm}| L{0cm}} 
+%	\hline      
+%	\textbf{Test Case ID} & \textbf{Objective} & \textbf{Inputs} & \textbf{Outcome}\\
+%	\hline 
+%	\hline
+%	View Research Group Report  &  
+%	The objective for this test case is to test that a report can be generated for a specific research group that the user can specify on the form & 
+%	The inputs required to execute this test case are the user's selection of a particular research group. This is an optional field and if it is not selected, a report will be generated for the entire department. & 
+%	The outcome of this test case should be that a report is generated for the specified research group & \\
+%	\hline 
+%View Report For Specific Lifecycle State  &  
+%	The objective for this test case is to test that a report can be generated for a specific life cycle state that the user can select on the form. A lifecycle state refers to the current status of the paper i.e. accepted, submitted, published. Hence a report will be generated displaying the papers of the selected state only & 
+%	The inputs required to execute this test case are the user's selection of a particular lifecycle state. This is an optional field and if it is not selected, a report will be generated including all utilized states . & 
+%	The outcome of this test case should be that a report is generated for the specified lifecycle state & \\ 
+%	\hline 
+%View Department Report &  
+%	The objective for this test case is to test that a report can be generated for the entire research department.This will also be the default option if users do not select filter options & 
+%	The inputs required to execute this test case are the user's selection of the option to view report, without selecting filters. & 
+%	The outcome of this test case should be that a report is generated for the entire department& \\ 
+%\end{tabular}
+%\\
+%\begin{tabular}{ L{3cm}| L{3cm}| L{3cm}| L{3cm}| L{0cm}} 
+%\hline 
+%View Report For Specific Publication Type &  
+%The objective for this test case is to test that a report can be generated for a specific publication type that the user can select on the form. A publication type refers to either a conference paper, journal article or technical papers. Hence a report will be generated displaying the papers of the selected specific publication type & 
+%	The inputs required to execute this test case are the user's selection of a particular publication type. This is an optional field and if it is not selected, a report will be generated including all utilized publication types . & 
+%	The outcome of this test case should be that a report is generated for the specified publication type& \\ 
+%\hline 
+%View Report For Specific Time Frame &  
+%The objective for this test case is to test that a report can be generated for a specific time frame that the user can select on the form. & 
+%	The inputs required to execute this test case are the user's selection of a particular time frame. This is an optional field and if it is not selected, a report will be generated for the entire period. & 
+%	The outcome of this test case should be that a report is generated for the specified time frame& \\ 
+%\hline
+%View Report For Specific Person &  
+%The objective for this test case is to test that a report can be generated for a specific person, provided the name and surname of said person is entered on the form & 
+%	The inputs required to execute this test case are the name and surname of the person for whom the report should be generated& 
+%	The outcome of this test case should be that a report is generated for the specified person& \\ 
+%\hline	 
+%\end{tabular}
 
-Which we can again tabulate if you want: \\\\
-\begin{tabular}{ L{3cm}| L{3cm}| L{3cm}| L{3cm}| L{0cm}} 
-	\hline      
-	\textbf{Test Case ID} & \textbf{Objective} & \textbf{Inputs} & \textbf{Outcome}\\
-	\hline 
-	\hline
-	View Research Group Report  &  
-	The objective for this test case is to test that a report can be generated for a specific research group that the user can specify on the form & 
-	The inputs required to execute this test case are the user's selection of a particular research group. This is an optional field and if it is not selected, a report will be generated for the entire department. & 
-	The outcome of this test case should be that a report is generated for the specified research group & \\
-	\hline 
-View Report For Specific Lifecycle State  &  
-	The objective for this test case is to test that a report can be generated for a specific life cycle state that the user can select on the form. A lifecycle state refers to the current status of the paper i.e. accepted, submitted, published. Hence a report will be generated displaying the papers of the selected state only & 
-	The inputs required to execute this test case are the user's selection of a particular lifecycle state. This is an optional field and if it is not selected, a report will be generated including all utilized states . & 
-	The outcome of this test case should be that a report is generated for the specified lifecycle state & \\ 
-	\hline 
-View Department Report &  
-	The objective for this test case is to test that a report can be generated for the entire research department.This will also be the default option if users do not select filter options & 
-	The inputs required to execute this test case are the user's selection of the option to view report, without selecting filters. & 
-	The outcome of this test case should be that a report is generated for the entire department& \\ 
-\end{tabular}
-\\
-\begin{tabular}{ L{3cm}| L{3cm}| L{3cm}| L{3cm}| L{0cm}} 
-\hline 
-View Report For Specific Publication Type &  
-The objective for this test case is to test that a report can be generated for a specific publication type that the user can select on the form. A publication type refers to either a conference paper, journal article or technical papers. Hence a report will be generated displaying the papers of the selected specific publication type & 
-	The inputs required to execute this test case are the user's selection of a particular publication type. This is an optional field and if it is not selected, a report will be generated including all utilized publication types . & 
-	The outcome of this test case should be that a report is generated for the specified publication type& \\ 
-\hline 
-View Report For Specific Time Frame &  
-The objective for this test case is to test that a report can be generated for a specific time frame that the user can select on the form. & 
-	The inputs required to execute this test case are the user's selection of a particular time frame. This is an optional field and if it is not selected, a report will be generated for the entire period. & 
-	The outcome of this test case should be that a report is generated for the specified time frame& \\ 
-\hline
-View Report For Specific Person &  
-The objective for this test case is to test that a report can be generated for a specific person, provided the name and surname of said person is entered on the form & 
-	The inputs required to execute this test case are the name and surname of the person for whom the report should be generated& 
-	The outcome of this test case should be that a report is generated for the specified person& \\ 
-\hline	 
-\end{tabular}
+\subsection{Accreditation Reporting}
+\subsubsection{By Entity} \label{ti_ar_entity}
+\paragraph{Objective:}
+\paragraph{Input:}
+\paragraph{Outcome:}
+\subsubsection{By Publication Type} \label{ti_ar_pubtype}
+\paragraph{Objective:}
+\paragraph{Input:}
+\paragraph{Outcome:}
+\subsubsection{By Life-cycle State} \label{ti_ar_lcs}
+\paragraph{Objective:}
+\paragraph{Input:}
+\paragraph{Outcome:}
+\subsubsection{By Some Combination of \ref{ti_ar_entity}, \ref{ti_ar_pubtype} \& \ref{ti_ar_lcs}}
+\paragraph{Objective:}
+\paragraph{Input:}
+\paragraph{Outcome:}
 
-\subsection{View Research Group Report}
-\subsubsection{Objective}
-This test case will evaluate the module's functionality specific to the generation of a research group report, containing all the relevant information, where the group is specified by a user.
+\subsection{Research Status Reporting}
+\subsubsection{By Entity} \label{ti_sr_entity}
+\paragraph{Objective:}
+\paragraph{Input:}
+\paragraph{Outcome:}
+\subsubsection{By Publication Type} \label{ti_sr_pubtype}
+\paragraph{Objective:}
+\paragraph{Input:}
+\paragraph{Outcome:}
+\subsubsection{By Some Combination of \ref{ti_sr_entity} \& \ref{ti_sr_pubtype}}
+\paragraph{Objective:}
+\paragraph{Input:}
+\paragraph{Outcome:}
 
-\subsubsection{Input}
-The user may specify a research group identity. This field is optional.
+%\subsection{View Research Group Report}
+%\subsubsection{Objective}
+%This test case will evaluate the module's functionality specific to the generation of a research group report, containing all the relevant information, where the group is specified by a user.
+%
+%\subsubsection{Input}
+%The user may specify a research group identity. This field is optional.
+%
+%\subsection{Outcome}
+%Where the user specifies a research group,  a report for that group should be generated. 
+%Where the user omits this field, a report for the entire department should be generated.
+%
+%\subsection{View Report For A Specific LifeCycleState}
+%\subsubsection{Objective} \label{TC_LifeCycleState_Obj}
+%This test case will evaluate the module's functionality for the generation of reports on research in a specific LifeCycleState. The LifeCycleState of some project may be one of the following:
+%\begin{itemize}
+%	\item InProgress
+%	\item Submitted
+%	\item Accepted
+%	\item InRevision
+%	\item Published
+%	\item Abandoned
+%\end{itemize}
+%\subsubsection{Input}
+%The user may specify any of the LifeCycleStates mentioned in \ref{TC_LifeCycleState_Obj}. 
+%This field is optional and may be omitted. Any other input is invalid.
+%
+%\subsection{Outcome}
+%Where the user specifies a valid LifeCycleState, a report should be generated where the included records are only of the specified LifeCycleState. 
+%Where the LifeCycleState is omitted, a report containing all projects (with any LifeCycleState) should be generated.
+%
+%\subsection{View Department Report}
+%\subsubsection{Objective}
+%This test case evaluates the functionality responsible for departmental report generation
+%
+%\subsubsection{Input}
+%\subsection{Outcome}
+%
+%\subsection{View Report For A Specific Publication Type}
+%\subsubsection{Objective}
+%\subsubsection{Input}
+%\subsection{Outcome}
+%
+%\subsection{View Report For A Specific Time Frame}
+%\subsubsection{Objective}
+%\subsubsection{Input}
+%\subsection{Outcome}
 
-\subsection{Outcome}
-Where the user specifies a research group,  a report for that group should be generated. 
-Where the user omits this field, a report for the entire department should be generated.
-
-\subsection{View Report For A Specific LifeCycleState}
-\subsubsection{Objective} \label{TC_LifeCycleState_Obj}
-This test case will evaluate the module's functionality for the generation of reports on research in a specific LifeCycleState. The LifeCycleState of some project may be one of the following:
-\begin{itemize}
-	\item InProgress
-	\item Submitted
-	\item Accepted
-	\item InRevision
-	\item Published
-	\item Abandoned
-\end{itemize}
-\subsubsection{Input}
-The user may specify any of the LifeCycleStates mentioned in \ref{TC_LifeCycleState_Obj}. 
-This field is optional and may be omitted. Any other input is invalid.
-
-\subsection{Outcome}
-Where the user specifies a valid LifeCycleState, a report should be generated where the included records are only of the specified LifeCycleState. 
-Where the LifeCycleState is omitted, a report containing all projects (with any LifeCycleState) should be generated.
-
-\subsection{View Department Report}
-\subsubsection{Objective}
-This test case evaluates the functionality responsible for departmental report generation
-
-\subsubsection{Input}
-\subsection{Outcome}
-
-\subsection{View Report For A Specific Publication Type}
-\subsubsection{Objective}
-\subsubsection{Input}
-\subsection{Outcome}
-
-\subsection{View Report For A Specific Time Frame}
-\subsubsection{Objective}
-\subsubsection{Input}
-\subsection{Outcome}
 \section{Item Pass/Fail Criteria}
 
 
