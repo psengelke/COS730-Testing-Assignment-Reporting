@@ -9,7 +9,12 @@ import net.sf.jasperreports.engine.JasperReport;
 import org.cos730.bugsrus.reporting.mock.ReportGenerator;
 
 import org.cos730.bugsrus.reporting.mock.AccreditationReportRequest;
+import org.cos730.bugsrus.reporting.mock.filter.EntityFilter;
 import org.cos730.bugsrus.reporting.mock.filter.Filter;
+import org.cos730.bugsrus.reporting.mock.filter.LifeCycleStateFilter;
+import org.cos730.bugsrus.reporting.mock.filter.PublicationFilter;
+import org.cos730.bugsrus.reporting.mock.types.LifeCyleState;
+import org.cos730.bugsrus.reporting.mock.types.PublicationType;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -42,7 +47,7 @@ public class ReportingTest {
 
         ReportGenerator rg = new ReportGenerator();
         LinkedList<Filter> filters = new LinkedList<>();
-        filters.add(new Filter("name:John"));
+        filters.add(new EntityFilter("John", false));
 
         JasperReport report = rg.requestAccreditationReport(new AccreditationReportRequest(filters)).getReport();
         Assert.assertNotSame(null, report);
@@ -55,8 +60,8 @@ public class ReportingTest {
 
         ReportGenerator rg = new ReportGenerator();
         LinkedList<Filter> filters = new LinkedList<>();
-        filters.add(new Filter("LifeCycleState:InProgress"));
-        filters.add(new Filter("name:John"));
+        filters.add(new EntityFilter("John", false));
+        filters.add(new PublicationFilter(PublicationType.Conference));
 
         JasperReport report = rg.requestAccreditationReport(new AccreditationReportRequest(filters)).getReport();
         Assert.assertNotSame(null, report);
