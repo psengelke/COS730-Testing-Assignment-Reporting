@@ -38,7 +38,7 @@ do each one.
 The approach taken for the functional requirements testing is a black box testing approach. This means that the functionality of the application is tested without considering the internal implementation. Hence, one is aware of what the specific module should be able to accomplish but not how the module accomplishes it. Hence, the result returned by a given function is tested. Test cases are established based on the Software Requirements Specifications and the pre and post conditions for the Reporting module. Both negative and positive tests will be conducted. There are two main services, firstly to generate a report based on the progress status of the publications and secondly to create a report with information regarding all accreditation units active within a specified time period. Tests will be created to test whether the Reporting module performs the right functions to provide these services accurately. \\
 \\ The following table displays the two main services that this module consists of and will be tested as well as the ID's of their respective test cases.
 
-\begin{tabular}{ l|l|L{3cm}|l } 
+\begin{tabular}{ l|L{3cm}|L{3cm}|l } 
 	\hline
 	\textbf{Feature ID} & \textbf{SRS Source} & \textbf{Summary} & \textbf{Test Case ID}\\
 	\hline
@@ -62,6 +62,7 @@ The approach taken for the functional requirements testing is a black box testin
 \item The testability of the system will be examined by mainly detecting the use of mock objects and automated unit and integration tests. These tests will further be examined as to whether they test whether the service contract in the specification was adhered to.
 \item The deployability of the module will be evaluated to see whether the application could be deployed on an application server.
 \end{enumerate}
+
 \section{Features not to be Tested}
 Features that are excluded from this test plan include:
 \begin{itemize}
