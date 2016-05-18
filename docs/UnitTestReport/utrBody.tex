@@ -7,37 +7,43 @@ The tests for this module have all failed. The main reasons will be described in
 \subsection{Functional Requirements Test Results}
 The tests we have created for this module are contained within the file ReportingTest.java which can be found in the following location:
 \\  COS730-Testing-Assignment-Reporting/software/reporting/src/test/java/org/cos730/bugsrus/reporting.
-Test Results for the following services that were specified in the Test Identification section of the Test Plan follow:  
-\subsubsection{Accreditation Reporting}  
+
+\subsubsection{Accreditation Reporting By Entity (TC \ref{ti_ar_entity})}  
 The following results were obtained from the tests conducted. The tests to produce the following results have failed and the reasons are stated below. 
 \begin{enumerate}
-	\item A report containing information regarding or related to the accreditation target of the specified researcher could not be generated due to the fact there is no persistence used with the data needed to compile the report and secondly a reporting framework such as Jasper Reports was not used. In addition, there are no functions in the provided code to handle such a request or provide the necessary functionality. 
-	\item A report containing information regarding or related to the accreditation target of the research group, where the data is an aggregated sum of the individual researchers in the group could not be generated for the same reasons could not be generated due to a lack of database and reporting framework in addition to the fact that there is no function to handle such a request.
-	\item An empty report was not generated for the same reasons stated in the previous bullet. 
+	\item A report containing information regarding or related to the accreditation target of the specified researcher could not be generated due to the fact the functionality did not conform to the service contracts stipulated in the RDS. 
+	\item A report containing information regarding or related to the accreditation target of the specified research group could not be generated due to the fact the functionality did not conform to the service contracts stipulated in the RDS.
+	\item An empty report for the last two cases could also not be generated for lack of conformance, but also because Jasper Reports were not utilised. 
 \end{enumerate}
+\paragraph{Result:} Fail.
 
-\subsubsection{By Publication Type}
+\subsubsection{Accreditation Reporting By Publication Type (TC \ref{ti_ar_pubtype})}
 \begin{enumerate}
-	\item A report of all publications of PublicationType: Journal, where the accreditation unit value, if published, cannot be generated because there is no functionality to support filtering by publication type furthermore there is no reporting framework in place to generate a report.
+	\item A report of all publications of PublicationType: Journal, where the accreditation unit value, if published, cannot be generated because there is no functionality to support filtering by publication type furthermore there is no use of Jasper Reports.
 	\item A report of all publications of PublicationType: Conference, where the accreditation unit value, if published, cannot be generated because of the same reasons.  
 	\item A report of all publications of PublicationType: Book Chapter, where the accreditation unit value, cannot be generated as well because of the same reasons stated above.
 \end{enumerate}
+\paragraph{Result:} Fail.
 
+\subsubsection{Accreditation Reporting By Life-cycle State (TC \ref{ti_ar_lcs})}
+For each of the inputs above, a report of all publications in that state exclusively, where the accreditation unit value is included cannot be generated because a function to filter by LifeCycleState has not been included in the classes provided and again due to the lack of a reporting framework, a report cannot be generated.
+\paragraph{Result:} Fail.
 
-\subsubsection{By Life-cycle State}
-For each of the inputs above, a report of all publications in that state exclusively, where the accreditation unit value is included cannot be generated because a function to filter by lifecycle state has not been included in the classes provided and again due to the lack of a reporting framework, a report cannot be generated. In addition, the lack of persistence makes it impossible to display any information on a report if one was generated. 
-
-\subsubsection{By Some Combination}
-Each combination must return a report that only shows information that is within the filters' constraints, since none of the accreditation filters were implemented this is not possible. Furthermore reports cannot be generated due to the lack of a persistance database.
+\subsubsection{Accreditation Reporting By Some Combination (TC \ref{ti_ar_com})}
+Each combination must return a report that only shows information that is within the filters' constraints, since none of the accreditation filters were implemented this is not possible.
+\paragraph{Result:} Fail.
  
-\subsection{Progress Reporting} 
-For the service getProgressReport, the associated tests failed and the reasons for this is stated below. 
+\subsubsection{Progress Reporting By Entity (TC \ref{ti_sr_entity})} 
+The functionality was not implemented and thus fails all input tests.
+\paragraph{Result:} Fail.
 
-\subsubsection{By Publication Type}
-For each PublicationType as input, the InProgress publications of that type could not be returned in the report due to the fact that there was no function created to service this request and to create a report based on filters. In addition, there is a lack of reporting framework and persistence.
+\subsubsection{Progress Reporting By Publication Type (TC \ref{ti_sr_pubtype})}
+For each PublicationType as input, the InProgress publications of that type could not be returned in the report due to the fact that there was no function created to service this request and to create a report based on filters.
+\paragraph{Result:} Fail.
 
-\subsubsection{By Some Combination }
+\subsubsection{Progress Reporting By Some Combination (TC \ref{ti_sr_com})}
 A report filtered by both Entity and PublicationType could not be returned since no functionality was implemented with the required filters.
+\paragraph{Result:} Fail.
 
 \subsection{Non-functional Requirements Test Results}
 \begin{enumerate} 
